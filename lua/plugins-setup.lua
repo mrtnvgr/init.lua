@@ -94,11 +94,18 @@ return packer.startup({function(use)
 
     -- ===================================================
 
-    -- Status line
+    -- Lines
 
+    -- Statusline
     use {
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    }
+
+    -- Tabline
+    use {
+        "romgrk/barbar.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
     }
 
     -- ===================================================

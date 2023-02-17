@@ -5,7 +5,10 @@ local defaults = { noremap = true, silent = true }
 -- Which-key keymaps
 
 
-local wk = require("which-key")
+local status, wk = pcall(require, "which-key")
+if not status then
+    return
+end
 
 wk.register(
 	{

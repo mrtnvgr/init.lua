@@ -39,7 +39,18 @@ return packer.startup({function(use)
     -- Auto-pairs
     use "jiangmiao/auto-pairs"
 
+    -- ===================================================
+
     -- UI eye-candy
+
+    use {
+        "folke/noice.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+    }
+
     use "stevearc/dressing.nvim"
 
     -- ===================================================

@@ -128,6 +128,8 @@ return packer.startup(function(use)
 		requires = {"nvim-treesitter/nvim-treesitter"},
 	}
 
+    use "windwp/nvim-ts-autotag"
+
     -- ====================================================
 
     -- Git integration

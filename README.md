@@ -1,2 +1,2 @@
-# init.lua
-Neovim configuration
+
+**My neovim configuration files**

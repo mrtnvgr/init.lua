@@ -16,7 +16,7 @@ if not status then
     return
 end
 
-return packer.startup(function(use)
+return packer.startup({function(use)
     use "wbthomason/packer.nvim"
 
     -- ==================================================
@@ -169,4 +169,8 @@ return packer.startup(function(use)
     if packer_bootstrap then
         require("packer").sync()
     end
-end)
+end,
+    config = {
+        autoremove = true,
+    },
+})

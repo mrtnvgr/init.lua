@@ -8,7 +8,6 @@ create_command("InitLuaUpdate", function()
         initlua.notify("InitLua: Repository pulled successfully")
     else
         vim.api.nvim_err_writeln "InitLua: Unable to pull repository"
-        return
     end
 
     -- Update Packer

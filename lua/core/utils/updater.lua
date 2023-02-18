@@ -11,6 +11,14 @@ create_command("InitLuaUpdate", function()
         vim.api.nvim_err_writeln "Unable to access packer"
         return
     end
+    vim.api.nvim_create_autocmd("User", {
+        once = true,
+        desc = "Close Packer window after update",
+        pattern = "PackerComplete",
+        callback = function()
+            require("packer.display").quit()
+        end,
+    })
     packer.sync()
 
     -- Update Tree-sitter

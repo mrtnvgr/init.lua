@@ -1,6 +1,7 @@
 local status, noice = pcall(require, "noice")
 if not status then
-    vim.api.nvim_err_writeln "Unable to access mason registry"
+    vim.api.nvim_err_writeln "Unable to access noice.nvim"
+    return
 end
 
 noice.setup({

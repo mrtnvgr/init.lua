@@ -21,7 +21,7 @@ function initlua.mason.update_all()
                 initlua.notify(("Mason: Updating %s"):format(pkg.name))
                 pkg:install():on("closed", function() initlua.notify("Mason: Updated %s"):format(pkg.name) end)
             else
-                initlua.notify(("Mason: No updates for %s"):format(pkg.name))
+                -- initlua.notify(("Mason: No updates for %s"):format(pkg.name))
             end
         end)
     end

@@ -16,7 +16,10 @@ function initlua.packer.update()
             if not packer_display_status then
                 vim.api.nvim_err_writeln "Unable to access packer display"
             else
-                packer_display.quit()
+                local has_changes = packer_display.has_changes
+                if not has_changes then
+                    packer_display.quit()
+                end
             end
         end,
     })

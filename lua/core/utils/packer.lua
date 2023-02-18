@@ -1,8 +1,8 @@
 initlua.packer = {}
 
 function initlua.packer.update()
-    local status, packer = pcall(require, "packer")
-    if not status then
+    local packer_status, packer = pcall(require, "packer")
+    if not packer_status then
         vim.api.nvim_err_writeln "Unable to access packer"
         return
     end
@@ -12,8 +12,8 @@ function initlua.packer.update()
         desc = "Close Packer window after update",
         pattern = "PackerComplete",
         callback = function()
-            local status, packer_display = pcall(require, "packer.display")
-            if not status then
+            local packer_display_status, packer_display = pcall(require, "packer.display")
+            if not packer_display_status then
                 vim.api.nvim_err_writeln "Unable to access packer display"
             else
                 packer_display.quit()

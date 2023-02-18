@@ -205,5 +205,10 @@ return packer.startup({function(use)
 end,
     config = {
         autoremove = true,
+        display = {
+            open_fn = function()
+                return require("packer.util").float({ border = "single" })
+            end
+        },
     },
 })

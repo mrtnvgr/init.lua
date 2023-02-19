@@ -10,6 +10,8 @@ create_command("InitLuaUpdate", function()
         vim.api.nvim_err_writeln "InitLua: Unable to pull repository"
     end
 
+    -- TODO: reload Self
+
     -- Update Packer
     initlua.packer.update()
 

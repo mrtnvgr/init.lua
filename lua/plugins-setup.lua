@@ -39,6 +39,9 @@ return packer.startup({function(use)
     -- Auto-pairs
     use "jiangmiao/auto-pairs"
 
+    -- Remember last place
+    use "farmergreg/vim-lastplace"
+
     -- ===================================================
 
     -- UI eye-candy

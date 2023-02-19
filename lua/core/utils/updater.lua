@@ -2,6 +2,8 @@ local create_command = vim.api.nvim_create_user_command
 
 create_command("InitLuaUpdate", function()
 
+    -- TODO: async
+
     -- Update Self
     local pull_status, _ = git.pull(false)
     if pull_status then

@@ -6,45 +6,41 @@ return {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
-        config = function()
-            require("noice").setup({
-                cmdline = {
-                    view = "cmdline",
-                },
+        opts = {
+            cmdline = {
+                view = "cmdline",
+            },
 
-                messages = {
-                    view_search = false,
-                },
+            messages = {
+                view_search = false,
+            },
 
-                lsp = {
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true,
-                    },
+            lsp = {
+                override = {
+                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                    ["vim.lsp.util.stylize_markdown"] = true,
+                    ["cmp.entry.get_documentation"] = true,
                 },
+            },
 
-                presets = {
-                    bottom_search = true,
-                    command_palette = false,
-                    long_message_to_split = true,
-                    inc_rename = false,
-                    lsp_doc_border = true,
-                },
-            })
-        end,
+            presets = {
+                bottom_search = true,
+                command_palette = false,
+                long_message_to_split = true,
+                inc_rename = false,
+                lsp_doc_border = true,
+            },
+        },
     },
 
     {
         "rcarriga/nvim-notify",
         event = "VeryLazy",
-        config = function()
-            require("notify").setup {
-                fps = 60,
-                timeout = 0,
-                stages = "fade",
-            }
-        end,
+        opts = {
+            fps = 60,
+            timeout = 0,
+            stages = "fade",
+        },
     },
 
     { "stevearc/dressing.nvim", event = "VeryLazy" },

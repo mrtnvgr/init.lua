@@ -13,8 +13,8 @@ create_command("InitLuaUpdate", function()
         initlua.err("Unable to pull repository")
     end
 
-    -- Update Packer
-    initlua.packer.update()
+    -- Update Lazy
+    initlua.lazy.update()
 
     -- Update Tree-sitter
     vim.cmd.TSUpdate()

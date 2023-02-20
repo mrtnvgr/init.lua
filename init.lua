@@ -6,6 +6,7 @@ require("initlua.core.colorscheme")
 require("initlua.core.autocmds")
 
 require("initlua.core.utils.init")
+require("initlua.core.utils.reload")
 require("initlua.core.utils.git")
 require("initlua.core.utils.mason")
 require("initlua.core.utils.packer")

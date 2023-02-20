@@ -5,7 +5,7 @@ create_command("InitLuaUpdate", function()
     -- TODO: async
 
     -- Update Self
-    local pull_status, _ = git.pull(false)
+    local pull_status, _ = initlua.git.pull(false)
     if pull_status then
         initlua.notify("InitLua: Repository pulled successfully")
     else

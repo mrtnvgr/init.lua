@@ -15,3 +15,11 @@ vim.api.nvim_create_autocmd("User", {
         vim.cmd.InitLuaReload()
     end,
 })
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    desc = "Spelling",
+    pattern = {"*.md", "*.txt"},
+    callback = function()
+        vim.opt_local.spell = true
+    end,
+})

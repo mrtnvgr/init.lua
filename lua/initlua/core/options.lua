@@ -42,7 +42,6 @@ opt.splitbelow = true
 opt.signcolumn = "yes"
 
 -- spell
-opt.spell = true
 opt.spelllang:append("en,ru")
 
 -- backups & undo

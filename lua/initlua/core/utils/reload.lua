@@ -10,6 +10,6 @@ create_command("InitLuaReload", function()
         dofile(vim.env.MYVIMRC)
     end
 
-    initlua.notify("InitLua: Reloaded successfully")
+    initlua.notify("Reloaded successfully")
 
 end, { desc = "Reload All Stuff" })

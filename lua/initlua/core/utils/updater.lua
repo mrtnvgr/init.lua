@@ -7,10 +7,10 @@ create_command("InitLuaUpdate", function()
     -- Update Self
     local pull_status, _ = initlua.git.pull(false)
     if pull_status then
-        initlua.notify("InitLua: Repository pulled successfully")
+        initlua.notify("Repository pulled successfully")
         vim.cmd.InitLuaReload()
     else
-        vim.api.nvim_err_writeln "InitLua: Unable to pull repository"
+        initlua.err("Unable to pull repository")
     end
 
     -- Update Packer

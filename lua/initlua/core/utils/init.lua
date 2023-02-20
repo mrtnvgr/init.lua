@@ -15,5 +15,9 @@ function initlua.cmd(cmd, show_error)
 end
 
 function initlua.notify(msg, type)
-    vim.schedule(function() vim.notify(msg, type, {}) end)
+    vim.schedule(function() vim.notify(msg, type, { title = "InitLua" }) end)
+end
+
+function initlua.err(msg)
+    initlua.notify(msg, "error")
 end

@@ -18,9 +18,9 @@ wk.register(
         t = {
             name = "Tabs",
             o = { ":tabnew<CR>", "Open new tab" },
-            x = { ":tabclose<CR>", "Close current tab" },
-            n = { ":tabnext<CR>", "Go to next tab" },
-            p = { ":tabprevious<CR>", "Go to previous tab" },
+            x = { ":BufferClose<CR>", "Close current tab" },
+            n = { ":BufferNext<CR>", "Go to next tab" },
+            p = { ":BufferPrevious<CR>", "Go to previous tab" },
         },
 
         s = {

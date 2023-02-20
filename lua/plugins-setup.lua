@@ -39,6 +39,14 @@ return packer.startup({function(use)
     -- Auto-pairs
     use "jiangmiao/auto-pairs"
 
+    -- Toggle stuff
+    use {
+        "nguyenvukhang/nvim-toggler",
+        config = function()
+            require("nvim-toggler").setup()
+        end,
+    }
+
     -- Remember last place
     use "farmergreg/vim-lastplace"
 
@@ -52,6 +60,17 @@ return packer.startup({function(use)
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
+    }
+
+    use {
+        "rcarriga/nvim-notify",
+        config = function()
+            require("notify").setup {
+                fps = 60,
+                timeout = 0,
+                stages = "fade",
+            }
+        end,
     }
 
     use "stevearc/dressing.nvim"

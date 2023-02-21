@@ -1,4 +1,5 @@
 return {
+    -- TODO: fix blinking
     "romgrk/barbar.nvim",
     lazy = false,
     dependencies = {

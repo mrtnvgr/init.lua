@@ -17,9 +17,10 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-    desc = "Spelling",
+    desc = "Turn on spelling and wrapping on text files",
     pattern = {"*.md", "*.txt"},
     callback = function()
         vim.opt_local.spell = true
+        vim.opt_local.wrap = true
     end,
 })

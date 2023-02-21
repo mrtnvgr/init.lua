@@ -62,6 +62,11 @@ return {
                 },
 
                 window = { completion = cmp.config.window.bordered() },
+
+                preselect = "none",
+                completion = {
+                    completeopt = "menu,menuone,noinsert,noselect",
+                },
             })
 
             lsp.setup_servers({

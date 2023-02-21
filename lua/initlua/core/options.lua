@@ -51,6 +51,3 @@ opt.undofile = true
 -- short mess
 opt.shortmess:append("I") -- do not show intro message
 opt.shortmess:append("s") -- do not show "search hit BOTTOM ..."
-
--- insert complete menu
-opt.completeopt = "menu,menuone,noselect"

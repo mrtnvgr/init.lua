@@ -1,7 +1,7 @@
 return {
     {
         "VonHeikemen/lsp-zero.nvim",
-        event = "InsertEnter",
+        event = "VeryLazy",
         branch = "v1.x",
         dependencies = {
             -- LSP Support
@@ -40,26 +40,26 @@ return {
 
             lsp.nvim_workspace()
 
-            local cmp = require("cmp")
-
-            lsp.setup_nvim_cmp({
-                sources = {
-                    { name = "spell" },
-                },
-
-                sorting = {
-                    comparators = {
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.score,
-                        require("cmp-under-comparator").under,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
-                },
-            })
+            -- local cmp = require("cmp")
+            --
+            -- lsp.setup_nvim_cmp({
+            --     sources = {
+            --         { name = "spell" },
+            --     },
+            --
+            --     sorting = {
+            --         comparators = {
+            --             cmp.config.compare.offset,
+            --             cmp.config.compare.exact,
+            --             cmp.config.compare.score,
+            --             require("cmp-under-comparator").under,
+            --             cmp.config.compare.kind,
+            --             cmp.config.compare.sort_text,
+            --             cmp.config.compare.length,
+            --             cmp.config.compare.order,
+            --         },
+            --     },
+            -- })
 
             lsp.setup()
         end,

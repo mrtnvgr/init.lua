@@ -25,13 +25,3 @@ require("lazy").setup({
         },
     },
 })
-
---     -- ===================================================
-
---     -- Improvements
-
---     -- Faster startup
---     use "lewis6991/impatient.nvim"
-
---     -- Remember last place
---     use "farmergreg/vim-lastplace"

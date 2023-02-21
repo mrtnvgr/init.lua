@@ -15,6 +15,7 @@ return {
             {"hrsh7th/cmp-buffer"},       -- Optional
             {"hrsh7th/cmp-path"},         -- Optional
             {"f3fora/cmp-spell"},
+            {"lukas-reineke/cmp-under-comparator"},
             {"saadparwaiz1/cmp_luasnip"}, -- Optional
             {"hrsh7th/cmp-nvim-lua"},     -- Optional
 
@@ -42,7 +43,20 @@ return {
             lsp.setup_nvim_cmp({
                 sources = {
                     { name = "spell" },
-                }
+                },
+
+                sorting = {
+                    comparators = {
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require("cmp-under-comparator").under,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
+                },
             })
 
             lsp.setup()

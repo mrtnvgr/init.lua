@@ -40,6 +40,8 @@ return {
 
             lsp.nvim_workspace()
 
+            local cmp = require("cmp")
+
             lsp.setup_nvim_cmp({
                 sources = {
                     { name = "spell" },

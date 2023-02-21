@@ -64,6 +64,11 @@ return {
                 window = { completion = cmp.config.window.bordered() },
             })
 
+            lsp.setup_servers({
+                "pyright",  -- Python
+                "lua_ls",   -- Lua
+            })
+
             lsp.nvim_workspace()
 
             cmp.setup(cmp_config)

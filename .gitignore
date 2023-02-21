@@ -1,3 +1,4 @@
 spell/*.spl
 spell/*.sug
+spell/*.add
 lazy-lock.json

@@ -10,11 +10,11 @@
 - [Nerd Font](https://nerdfonts.com/) (Optional)
 
 ## Installation
-
-TODO
+```console
+git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
+```
 
 ## Acknowledgements
 
-- [AstroNvim](AstroNvim/AstroNvim) (core utils structure)
-- [lazy.nvim](folke/lazy.nvim) (README structure)
-- [Josean's neovim from scratch](josean-dev/dev-environment-files) (some plugins)
+- [AstroNvim](https://github.com/AstroNvim/AstroNvim) (core.utils structure)
+- [lazy.nvim](https://github.com/folke/lazy.nvim) (README structure)

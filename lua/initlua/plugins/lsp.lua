@@ -27,7 +27,7 @@ return {
             local lsp = require("lsp-zero").preset({
                 name = "minimal",
                 set_lsp_keymaps = true,
-                manage_nvim_cmp = true,
+                manage_nvim_cmp = false,
                 suggest_lsp_servers = true,
             })
 
@@ -38,30 +38,35 @@ return {
                 bind("n", "gl", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
             end)
 
+            lsp.setup()
+
+            local cmp_sources = lsp.defaults.cmp_sources()
+            table.insert(cmp_sources, { name = "spell" })
+
+            local cmp = require("cmp")
+
+            local cmp_config = lsp.defaults.cmp_config({
+                sources = cmp_sources,
+
+                sorting = {
+                    comparators = {
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require("cmp-under-comparator").under,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
+                },
+
+                window = { completion = cmp.config.window.bordered() },
+            })
+
             lsp.nvim_workspace()
 
-            -- local cmp = require("cmp")
-            --
-            -- lsp.setup_nvim_cmp({
-            --     sources = {
-            --         { name = "spell" },
-            --     },
-            --
-            --     sorting = {
-            --         comparators = {
-            --             cmp.config.compare.offset,
-            --             cmp.config.compare.exact,
-            --             cmp.config.compare.score,
-            --             require("cmp-under-comparator").under,
-            --             cmp.config.compare.kind,
-            --             cmp.config.compare.sort_text,
-            --             cmp.config.compare.length,
-            --             cmp.config.compare.order,
-            --         },
-            --     },
-            -- })
-
-            lsp.setup()
+            cmp.setup(cmp_config)
         end,
     },
 }

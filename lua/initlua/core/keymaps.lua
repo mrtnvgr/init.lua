@@ -4,42 +4,33 @@ local defaults = { noremap = true, silent = true }
 
 -- Which-key keymaps
 
-
 local status, wk = pcall(require, "which-key")
 if not status then
-    return
+	return
 end
 
-wk.register(
-	{
+wk.register({
 
-        t = {
-            name = "Tabs",
-            o = { ":tabnew<CR>", "Open new tab" },
-            x = { ":BufferClose<CR>", "Close current tab" },
-            n = { ":BufferNext<CR>", "Go to next tab" },
-            p = { ":BufferPrevious<CR>", "Go to previous tab" },
-        },
-
-        s = {
-            name = "Split current window",
-            v = { "<C-w>v", "Split window vertically" },
-            h = { "<C-w>s", "Split window horizontally" },
-            e = { "<C-w>e", "Split window with equal width" },
-            x = { ":close<CR>", "Close current window" },
-        },
-
+	t = {
+		name = "Tabs",
+		o = { ":tabnew<CR>", "Open new tab" },
+		x = { ":BufferClose<CR>", "Close current tab" },
+		n = { ":BufferNext<CR>", "Go to next tab" },
+		p = { ":BufferPrevious<CR>", "Go to previous tab" },
 	},
-	{
-		prefix = "<leader>",
-	}
-)
 
-
-
+	s = {
+		name = "Split current window",
+		v = { "<C-w>v", "Split window vertically" },
+		h = { "<C-w>s", "Split window horizontally" },
+		e = { "<C-w>e", "Split window with equal width" },
+		x = { ":close<CR>", "Close current window" },
+	},
+}, {
+	prefix = "<leader>",
+})
 
 -- General keymaps
-
 
 -- Clear search highlights
 map("n", "<leader>nh", ":nohl<CR>", defaults)

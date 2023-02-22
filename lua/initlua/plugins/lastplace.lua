@@ -1,7 +1,7 @@
 return {
-    {
-        "ethanholz/nvim-lastplace",
-        event = {"BufEnter", "BufWinEnter"},
-        config = true,
-    }
+	{
+		"ethanholz/nvim-lastplace",
+		event = { "BufEnter", "BufWinEnter" },
+		config = true,
+	},
 }

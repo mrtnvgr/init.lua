@@ -12,16 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = "initlua.plugins",
-    defaults = { lazy = true },
-    ui = { border = "single" },
-    install = {
-        missing = true, -- turn on explicitly
-        colorscheme = {
-            "tokyonight-night", "habamax",
-        },
-        checker = {
-            enabled = false, -- turn off explicitly
-        },
-    },
+	spec = "initlua.plugins",
+	defaults = { lazy = true },
+	ui = { border = "single" },
+	install = {
+		missing = true, -- turn on explicitly
+		colorscheme = {
+			"tokyonight-night",
+			"habamax",
+		},
+		checker = {
+			enabled = false, -- turn off explicitly
+		},
+	},
 })

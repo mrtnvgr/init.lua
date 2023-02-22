@@ -69,14 +69,18 @@ return {
 				},
 			})
 
-			-- lsp.configure("pyright", {
-			--     settings = {
-			--         python = {
-			--             -- Turn off type checking
-			--             analysis = { diagnosticSeverityOverrides = { reportGeneralTypeIssues = "none" } },
-			--         },
-			--     }
-			-- })
+			lsp.configure("pyright", {
+				settings = {
+					python = {
+						-- Turn off type checking
+						analysis = {
+							diagnosticSeverityOverrides = {
+								reportGeneralTypeIssues = "none",
+							},
+						},
+					},
+				},
+			})
 
 			lsp.configure("lua_ls", {
 				settings = {
@@ -92,7 +96,7 @@ return {
 			})
 
 			lsp.setup_servers({
-				"jedi_language_server", -- Python
+				"pyright", -- Python
 				"lua_ls", -- Lua
 			})
 

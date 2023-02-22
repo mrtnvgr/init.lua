@@ -64,9 +64,7 @@ return {
 				},
 				window = { completion = cmp.config.window.bordered() },
 				preselect = "none",
-				completion = {
-					completeopt = "menu,menuone,noinsert,noselect",
-				},
+				completion = { completeopt = "menu,menuone,noinsert,noselect" },
 			})
 
 			lsp.configure("pyright", {
@@ -76,6 +74,7 @@ return {
 						analysis = {
 							diagnosticSeverityOverrides = {
 								reportGeneralTypeIssues = "none",
+								reportOptionalMemberAccess = "none",
 							},
 						},
 					},
@@ -95,10 +94,7 @@ return {
 				},
 			})
 
-			lsp.setup_servers({
-				"pyright", -- Python
-				"lua_ls", -- Lua
-			})
+			-- lsp.setup_servers({})
 
 			lsp.nvim_workspace()
 

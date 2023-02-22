@@ -8,8 +8,12 @@ cmd ([[
 	command! Q :q
 ]])
 
+local augroup = vim.api.nvim_create_augroup("InitLua", {})
+vim.api.nvim_clear_autocmds({ group = augroup })
+
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     desc = "Turn on spelling and wrapping on text files",
+    group = augroup,
     pattern = {"*.md", "*.txt"},
     callback = function()
         vim.opt_local.spell = true

@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("initlua.core.options")
 
 require("initlua.plugins-setup")

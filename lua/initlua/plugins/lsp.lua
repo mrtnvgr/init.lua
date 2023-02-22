@@ -25,7 +25,7 @@ return {
         },
         config = function()
             local lsp = require("lsp-zero").preset({
-                name = "minimal",
+                name = "recommended",
                 set_lsp_keymaps = true,
                 manage_nvim_cmp = false,
                 suggest_lsp_servers = true,
@@ -69,9 +69,18 @@ return {
                 },
             })
 
+            -- lsp.configure("pyright", {
+            --     settings = {
+            --         python = {
+            --             -- Turn off type checking
+            --             analysis = { diagnosticSeverityOverrides = { reportGeneralTypeIssues = "none" } },
+            --         },
+            --     }
+            -- })
+
             lsp.setup_servers({
-                "pyright",  -- Python
-                "lua_ls",   -- Lua
+                "jedi_language_server",  -- Python
+                "lua_ls",                -- Lua
             })
 
             lsp.nvim_workspace()

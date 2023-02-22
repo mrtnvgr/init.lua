@@ -43,8 +43,6 @@ return {
 				bind("n", "gl", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 			end)
 
-			lsp.setup()
-
 			local cmp_sources = lsp.defaults.cmp_sources()
 			table.insert(cmp_sources, { name = "spell" })
 
@@ -80,12 +78,27 @@ return {
 			--     }
 			-- })
 
+			lsp.configure("lua_ls", {
+				settings = {
+					lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			})
+
 			lsp.setup_servers({
 				"jedi_language_server", -- Python
 				"lua_ls", -- Lua
 			})
 
 			lsp.nvim_workspace()
+
+			lsp.setup()
 
 			cmp.setup(cmp_config)
 

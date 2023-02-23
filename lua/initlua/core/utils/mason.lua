@@ -3,7 +3,7 @@ initlua.mason = {}
 function initlua.mason.update_all()
 	local registry_avail, registry = pcall(require, "mason-registry")
 	if not registry_avail then
-		vim.api.nvim_err_writeln("Unable to access mason registry")
+		initlua.err("Unable to access mason registry")
 		return
 	end
 

@@ -8,20 +8,11 @@ return {
 		},
 		config = function()
 			require("noice").setup({
-				cmdline = {
-					view = "cmdline",
-				},
+				cmdline = { view = "cmdline" },
 
 				messages = {
+					-- TODO: ...
 					view_search = false,
-				},
-
-				lsp = {
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
 				},
 
 				presets = {
@@ -55,9 +46,7 @@ return {
 			})
 
 			-- https://github.com/folke/noice.nvim/wiki/A-Guide-to-Messages#lsp-messages
-			vim.diagnostic.config({
-				update_in_insert = false,
-			})
+			vim.diagnostic.config({ update_in_insert = false })
 		end,
 	},
 }

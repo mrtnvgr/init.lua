@@ -7,6 +7,7 @@
 
 - Neovim >= **0.8.0**
 - Git
+- Ripgrep (for todo-comments.nvim)
 - [Nerd Font](https://nerdfonts.com/) (Optional)
 
 ## Installation

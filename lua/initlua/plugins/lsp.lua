@@ -127,7 +127,7 @@ return {
 					"isort", -- Python import formatting
 					"autopep8", -- Python auto pep8 fixing
 					"jsonlint", -- JSON Linting
-					"yamllint", -- YAML Linting
+					"actionlint", -- Github Actions YAML Linting
 					"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting
 				},
 				automatic_installation = true,

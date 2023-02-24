@@ -128,6 +128,8 @@ return {
 					"black", -- Python formatting
 					"isort", -- Python import formatting
 					"autopep8", -- Python auto pep8 fixing
+					"jsonlint", -- JSON Linting
+					"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting
 				},
 				automatic_installation = true,
 				automatic_setup = true,

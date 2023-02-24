@@ -7,7 +7,7 @@ return {
 	},
 	{
 		"folke/todo-comments.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			highlight = {

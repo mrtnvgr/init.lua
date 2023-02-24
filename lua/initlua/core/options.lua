@@ -51,3 +51,7 @@ opt.undofile = true
 -- short mess
 opt.shortmess:append("I") -- do not show intro message
 opt.shortmess:append("s") -- do not show "search hit BOTTOM ..."
+
+-- turn off default status line
+opt.laststatus = 0
+opt.ruler = false

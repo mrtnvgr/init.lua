@@ -11,6 +11,8 @@ return {
 					"python",
 					"lua",
 					"bash",
+					"yaml",
+					"json",
 					"vim",
 					"help",
 					"query",

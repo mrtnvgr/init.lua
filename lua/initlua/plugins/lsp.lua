@@ -73,6 +73,8 @@ return {
 				"pyright", -- Python
 				"lua_ls", -- Lua
 				"vim_ls", -- Vim stuff
+				"jsonls", -- JSON
+				"yamlls", -- YAML
 			})
 
 			lsp.configure("pyright", {

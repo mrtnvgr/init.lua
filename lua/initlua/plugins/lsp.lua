@@ -75,6 +75,7 @@ return {
 				"vim_ls", -- Vim stuff
 				"jsonls", -- JSON
 				"yamlls", -- YAML
+				"taplo", -- TOML
 			})
 
 			lsp.configure("pyright", {

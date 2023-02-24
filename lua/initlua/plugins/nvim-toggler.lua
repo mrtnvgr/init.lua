@@ -1,7 +1,7 @@
 return {
 	{
 		"nguyenvukhang/nvim-toggler",
-		event = "BufEnter",
+		event = "BufWinEnter",
 		config = true,
 	},
 }

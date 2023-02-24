@@ -1,7 +1,7 @@
 return {
 	{
 		"Darazaki/indent-o-matic",
-		event = "BufEnter",
+		event = "BufWinEnter",
 		config = function()
 			require("indent-o-matic").detect() -- Detect on BufEnter
 			vim.cmd([[autocmd! indent_o_matic]]) -- Disable default autocmd

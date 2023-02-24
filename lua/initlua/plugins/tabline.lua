@@ -1,7 +1,7 @@
 return {
 	-- TODO: fix blinking
 	"romgrk/barbar.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",
 	},

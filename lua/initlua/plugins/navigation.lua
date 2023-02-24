@@ -1,6 +1,6 @@
 return {
 	{
 		"christoomey/vim-tmux-navigator",
-		event = "BufReadPost",
+		keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
 	},
 }

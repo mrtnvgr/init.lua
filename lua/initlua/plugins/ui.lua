@@ -1,7 +1,7 @@
 return {
 	{
 		"rcarriga/nvim-notify",
-		event = "VeryLazy",
+		event = { "VimEnter" },
 		opts = {
 			fps = 144,
 			timeout = 2500,

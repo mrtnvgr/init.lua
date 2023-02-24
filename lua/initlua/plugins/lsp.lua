@@ -1,7 +1,7 @@
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		event = "VeryLazy",
+		event = "BufWinEnter",
 		branch = "v1.x",
 		dependencies = {
 			-- LSP Support
@@ -72,7 +72,7 @@ return {
 			lsp.ensure_installed({
 				"pyright", -- Python
 				"lua_ls", -- Lua
-				"vim_ls", -- Vim stuff
+				"vimls", -- Vim stuff
 				"jsonls", -- JSON
 				"yamlls", -- YAML
 				"taplo", -- TOML

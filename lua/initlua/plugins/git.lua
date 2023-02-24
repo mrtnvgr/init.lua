@@ -1,10 +1,8 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
+		event = "BufWinEnter",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = true,
 	},
 }

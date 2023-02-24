@@ -83,10 +83,7 @@ return {
 					python = {
 						-- Turn off type checking
 						analysis = {
-							diagnosticSeverityOverrides = {
-								reportGeneralTypeIssues = "none",
-								reportOptionalMemberAccess = "none",
-							},
+							typeCheckingMode = "off",
 						},
 					},
 				},

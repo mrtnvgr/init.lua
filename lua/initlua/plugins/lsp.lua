@@ -67,6 +67,14 @@ return {
 				completion = { completeopt = "menu,menuone,noinsert,noselect" },
 			})
 
+			cmp.setup(cmp_config)
+
+			lsp.ensure_installed({
+				"pyright", -- Python
+				"lua_ls", -- Lua
+				"vim_ls", -- Vim stuff
+			})
+
 			lsp.configure("pyright", {
 				settings = {
 					python = {
@@ -99,8 +107,6 @@ return {
 			lsp.nvim_workspace()
 
 			lsp.setup()
-
-			cmp.setup(cmp_config)
 
 			-- null-ls setup
 			local null_ls = require("null-ls")

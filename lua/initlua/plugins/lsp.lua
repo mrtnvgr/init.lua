@@ -88,16 +88,8 @@ return {
 			lsp.configure("lua_ls", {
 				settings = {
 					lua = {
-						codeLens = {
-							-- HACK:
-							enable = true,
-						},
-						hint = {
-							-- HACK:
-							enable = true,
-						},
 						format = {
-							-- NOTE: using null-ls formatting instead
+							-- using null-ls formatting instead
 							enable = false,
 						},
 						diagnostics = {

@@ -16,6 +16,11 @@
 git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 ```
 
+## Commands
+
+- `InitLuaUpdate` - update everything
+- `InitLuaReload` - reload `initlua.core.*` lua files
+
 ## Acknowledgements
 
 - [AstroNvim](https://github.com/AstroNvim/AstroNvim) (core.utils structure)

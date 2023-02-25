@@ -1,6 +1,6 @@
 local create_command = vim.api.nvim_create_user_command
 
-create_command("InitLuaReload", function()
+create_command("InitluaReload", function()
 	local reload_module = require("plenary.reload").reload_module
 
 	local reloaded = true

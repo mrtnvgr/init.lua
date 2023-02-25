@@ -8,7 +8,7 @@ cmd([[
 	command! Q :q
 ]])
 
-local augroup = vim.api.nvim_create_augroup("InitLua", {})
+local augroup = vim.api.nvim_create_augroup("Initlua", {})
 vim.api.nvim_clear_autocmds({ group = augroup })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {

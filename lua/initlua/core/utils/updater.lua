@@ -1,11 +1,11 @@
 local create_command = vim.api.nvim_create_user_command
 
-create_command("InitLuaUpdate", function()
+create_command("InitluaUpdate", function()
 	-- Update Self
 	local pull_status, _ = initlua.git.pull(false)
 	if pull_status then
 		initlua.notify("Repository pulled successfully")
-		vim.cmd.InitLuaReload()
+		vim.cmd.InitluaReload()
 	else
 		initlua.err("Unable to pull repository")
 	end

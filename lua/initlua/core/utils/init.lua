@@ -17,7 +17,7 @@ end
 
 function initlua.notify(msg, type)
 	vim.schedule(function()
-		vim.notify(msg, type, { title = "InitLua" })
+		vim.notify(msg, type, { title = "Init.lua" })
 	end)
 end
 

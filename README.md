@@ -20,12 +20,14 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 
 - `InitluaUpdate` - update everything
 - `InitluaReload` - reload `initlua.core.*` lua files
+- `InitluaUpdateAllMasonPackages` - update all Mason packages
 
 ## Lua Commands
 
 - `initlua.update()` - update everything
 - `initlua.reload()` - reload `initlua.core.*` lua files
 - `initlua.mason.update_all()` - update all Mason packages
+- NOTE: **all other lua commands are internal, I don't recommend using them**
 
 ## Acknowledgements
 

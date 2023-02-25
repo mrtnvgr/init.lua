@@ -110,7 +110,11 @@ return {
 				},
 			})
 
-			-- TODO: turn off telemetry everywhere
+			lsp.configure("yamlls", {
+				settings = {
+					redhat = { telemetry = { enabled = false } },
+				},
+			})
 
 			-- TODO: fix signs
 			lsp.configure("ltex", {

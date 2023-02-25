@@ -14,7 +14,6 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
 			{ "hrsh7th/cmp-buffer" }, -- Optional
 			{ "hrsh7th/cmp-path" }, -- Optional
-			{ "f3fora/cmp-spell" },
 			{ "lukas-reineke/cmp-under-comparator" },
 			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
 			{ "hrsh7th/cmp-nvim-lua" }, -- Optional
@@ -43,13 +42,9 @@ return {
 				bind("n", "gl", "<CMD>lua vim.diagnostic.open_float()<CR>", opts)
 			end)
 
-			local cmp_sources = lsp.defaults.cmp_sources()
-			table.insert(cmp_sources, { name = "spell" })
-
 			local cmp = require("cmp")
 
 			local cmp_config = lsp.defaults.cmp_config({
-				sources = cmp_sources,
 				sorting = {
 					comparators = {
 						cmp.config.compare.offset,
@@ -76,6 +71,7 @@ return {
 				"jsonls", -- JSON
 				"yamlls", -- YAML
 				"taplo", -- TOML
+				"ltex", -- Language
 			})
 
 			lsp.configure("pyright", {
@@ -98,6 +94,23 @@ return {
 						telemetry = {
 							enable = false,
 						},
+					},
+				},
+			})
+
+			-- TODO: turn off telemetry everywhere
+
+			-- TODO: fix signs
+			lsp.configure("ltex", {
+				settings = {
+					ltex = {
+						-- HACK: docs do not recommend using this
+						language = "auto",
+						additionalRules = {
+							motherTongue = "ru-RU",
+						},
+						-- FIX: does not work
+						completionEnabled = true,
 					},
 				},
 			})

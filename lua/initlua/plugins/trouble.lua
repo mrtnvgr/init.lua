@@ -15,6 +15,20 @@ return {
 				keyword = "fg",
 				after = "",
 			},
+			search = {
+				command = "grep",
+				args = {
+					"--recursive",
+					"--color=never",
+					"--with-filename",
+					"--line-number",
+					"--binary-files=without-match",
+					"--byte-offset",
+					'--exclude-dir=".*"',
+					"--extended-regexp",
+				},
+				pattern = ".*(KEYWORDS):",
+			},
 		},
 	},
 }

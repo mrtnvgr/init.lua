@@ -18,6 +18,9 @@ return {
 				keyword = "fg",
 				after = "",
 			},
+			fallback_search = {
+				disable_warning = true,
+			},
 			-- search = {
 			-- 	command = "grep",
 			-- 	args = {

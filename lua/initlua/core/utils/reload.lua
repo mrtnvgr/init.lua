@@ -1,6 +1,4 @@
-local create_command = vim.api.nvim_create_user_command
-
-create_command("InitluaReload", function()
+function initlua.reload()
 	local reload_module = require("plenary.reload").reload_module
 
 	local reloaded = true
@@ -21,4 +19,6 @@ create_command("InitluaReload", function()
 	else
 		initlua.err("Failed to reload")
 	end
-end, { desc = "Reload All Stuff" })
+end
+
+vim.api.nvim_create_user_command("InitluaReload", initlua.reload, { desc = "Reload Everything" })

@@ -1,6 +1,4 @@
-local create_command = vim.api.nvim_create_user_command
-
-create_command("InitluaUpdate", function()
+function initlua.update()
 	-- Update Self
 	local pull_status, _ = initlua.git.pull(false)
 	if pull_status then
@@ -18,4 +16,6 @@ create_command("InitluaUpdate", function()
 
 	-- Update LSP
 	initlua.mason.update_all()
-end, { desc = "Update All Stuff" })
+end
+
+vim.api.nvim_create_user_command("InitluaUpdate", initlua.update, { desc = "Update All Stuff" })

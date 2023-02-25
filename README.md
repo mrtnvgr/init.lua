@@ -16,10 +16,16 @@
 git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 ```
 
-## Commands
+## Neovim Commands
 
 - `InitluaUpdate` - update everything
 - `InitluaReload` - reload `initlua.core.*` lua files
+
+## Lua Commands
+
+- `initlua.update()` - update everything
+- `initlua.reload()` - reload `initlua.core.*` lua files
+- `initlua.mason.update_all()` - update all Mason packages
 
 ## Acknowledgements
 

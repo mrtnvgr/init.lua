@@ -1,7 +1,7 @@
 return {
 	{
 		"numToStr/Comment.nvim",
-		event = "BufWinEnter",
+		event = "VeryLazy",
 		config = true,
 	},
 }

@@ -21,6 +21,7 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 - `InitluaUpdate` - update everything
 - `InitluaReload` - reload `initlua.core.*` lua files
 - `InitluaUpdateAllMasonPackages` - update all Mason packages
+- `InitluaToggleFormatting` - toggle null-ls formatting
 
 ## Lua Commands
 
@@ -28,6 +29,7 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 - `initlua.reload()` - reload `initlua.core.*` lua files
 - `initlua.mason.update_all()` - update all Mason packages
 - `initlua.git.pull()` - pull updates from init.lua repository
+- `initlua.format.toggle()` - toggle null-ls formatting
 - **all other lua commands are internal, I don't recommend using them**
 
 ## Acknowledgements

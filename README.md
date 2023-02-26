@@ -26,7 +26,16 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 | `InitluaGitPull`                | `initlua.git.pull()`         | pull updates from init.lua repository |
 | `InitluaUpdateAllMasonPackages` | `initlua.mason.update_all()` | update all Mason packages             |
 
-**All other commands are internal and are not recommended to use.**
+**All other commands are internal and are not recommended for use.**
+
+## Uninstallation
+
+**WARNING: these commands delete all nvim configs, logs, etc.**
+
+```console
+rm -rf ~/.config/nvim/
+rm -rf ~/.local/*/nvim/
+```
 
 ## Acknowledgements
 

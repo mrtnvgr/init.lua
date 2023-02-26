@@ -16,21 +16,17 @@
 git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 ```
 
-## Neovim Commands
+## Commands
 
-- `InitluaUpdate` - update everything
-- `InitluaReload` - reload `initlua.core.*` lua files
-- `InitluaUpdateAllMasonPackages` - update all Mason packages
-- `InitluaToggleFormatting` - toggle null-ls formatting
+| Neovim command                  | Lua command                  | Description                           |
+| ------------------------------- | ---------------------------- | ------------------------------------- |
+| `InitluaUpdate`                 | `initlua.update()`           | update everything                     |
+| `InitluaReload`                 | `initlua.reload()`           | reload `initlua.core.*` lua files     |
+| `InitluaToggleFormatting`       | `initlua.format.toggle()`    | toggle null-ls formatting             |
+| `InitluaGitPull`                | `initlua.git.pull()`         | pull updates from init.lua repository |
+| `InitluaUpdateAllMasonPackages` | `initlua.mason.update_all()` | update all Mason packages             |
 
-## Lua Commands
-
-- `initlua.update()` - update everything
-- `initlua.reload()` - reload `initlua.core.*` lua files
-- `initlua.mason.update_all()` - update all Mason packages
-- `initlua.git.pull()` - pull updates from init.lua repository
-- `initlua.format.toggle()` - toggle null-ls formatting
-- **all other lua commands are internal, I don't recommend using them**
+**All other commands are internal and are not recommended to use.**
 
 ## Acknowledgements
 

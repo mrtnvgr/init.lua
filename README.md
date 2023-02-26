@@ -28,15 +28,6 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 
 **All other commands are internal and are not recommended for use.**
 
-## Uninstallation
-
-**WARNING: these commands delete all nvim configs, logs, etc.**
-
-```console
-rm -rf ~/.config/nvim/
-rm -rf ~/.local/*/nvim/
-```
-
 ## Acknowledgements
 
 - [AstroNvim](https://github.com/AstroNvim/AstroNvim) (core.utils structure)

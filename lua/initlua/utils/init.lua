@@ -31,6 +31,10 @@ function initlua.load_modules(path, modules)
 	end
 end
 
+function initlua.set_sign(name, text, ...)
+	return vim.fn.sign_define(name, { texthl = name, text = text, ... })
+end
+
 local modules = {
 	-- General utils
 	"reload",

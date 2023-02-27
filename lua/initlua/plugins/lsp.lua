@@ -154,6 +154,9 @@ return {
 				automatic_setup = true,
 			})
 			require("mason-null-ls").setup_handlers()
+
+			-- Signs
+			initlua.set_sign("DiagnosticSignInfo", "")
 		end,
 	},
 }

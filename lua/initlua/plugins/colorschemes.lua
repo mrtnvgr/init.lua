@@ -1,9 +1,9 @@
-return {
+local default_colorscheme = "tokyonight"
+
+local colorschemes = {
 	-- Tokyonight
 	{
 		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
 		name = "tokyonight",
 		config = function()
 			require("tokyonight").setup({ style = "night" })
@@ -14,14 +14,31 @@ return {
 	-- Gruvbox
 	{
 		"ellisonleao/gruvbox.nvim",
-		lazy = true,
 		name = "gruvbox",
 	},
 
 	-- Catppuccin
 	{
 		"catppuccin/nvim",
-		lazy = true,
 		name = "catppuccin",
 	},
 }
+
+for i, value in ipairs(colorschemes) do
+	if value.name == default_colorscheme then
+		-- Prioritize colorscheme
+		colorschemes[i].lazy = false
+		colorschemes[i].priority = 1000
+
+		-- Make config function if none
+		if value.config == nil then
+			colorschemes[i].config = function()
+				vim.cmd.colorscheme(default_colorscheme)
+			end
+		end
+
+		break
+	end
+end
+
+return colorschemes

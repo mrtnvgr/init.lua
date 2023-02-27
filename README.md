@@ -32,3 +32,4 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 
 - [AstroNvim](https://github.com/AstroNvim/AstroNvim) (core.utils structure)
 - [lazy.nvim](https://github.com/folke/lazy.nvim) (README structure)
+- [nxvim](https://github.com/tenxsoydev/nxvim) (Better module structure)

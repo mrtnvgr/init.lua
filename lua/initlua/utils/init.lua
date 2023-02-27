@@ -24,3 +24,26 @@ end
 function initlua.err(msg)
 	initlua.notify(msg, "error")
 end
+
+function initlua.load_modules(path, modules)
+	for _, module in ipairs(modules) do
+		require(path .. "." .. module)
+	end
+end
+
+local modules = {
+	-- General utils
+	"reload",
+
+	-- Required for updating
+	"git",
+	"mason",
+	"lazy",
+	"updater",
+
+	-- Miscellaneous
+	"cs",
+	"format",
+}
+
+initlua.load_modules("initlua.utils", modules)

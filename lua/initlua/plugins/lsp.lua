@@ -26,6 +26,9 @@ return {
 			{ "jose-elias-alvarez/null-ls.nvim" },
 			{ "jay-babu/mason-null-ls.nvim" },
 			{ "lukas-reineke/lsp-format.nvim" },
+
+			-- Neovim cmp
+			{ "folke/neodev.nvim" },
 		},
 		config = function()
 			local lsp = require("lsp-zero").preset({
@@ -92,9 +95,6 @@ return {
 							-- using null-ls formatting instead
 							enable = false,
 						},
-						diagnostics = {
-							globals = { "vim" },
-						},
 						telemetry = {
 							enable = false,
 						},
@@ -125,8 +125,7 @@ return {
 
 			-- lsp.setup_servers({})
 
-			lsp.nvim_workspace()
-
+			require("neodev").setup() -- lsp.nvim_workspace()
 			lsp.setup()
 
 			-- null-ls setup

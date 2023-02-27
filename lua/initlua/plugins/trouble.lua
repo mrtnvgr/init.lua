@@ -7,34 +7,37 @@ return {
 	},
 
 	{
-		"mrtnvgr/todo-comments.nvim",
-		-- TODO: https://github.com/folke/todo-comments.nvim/pull/183
-		branch = "fallback_searching",
+		"folke/todo-comments.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			highlight = {
-				before = "",
-				keyword = "fg",
-				after = "",
-			},
-			fallback_search = {
-				disable_warning = true,
-			},
-			-- search = {
-			-- 	command = "grep",
-			-- 	args = {
-			-- 		"--recursive",
-			-- 		"--color=never",
-			-- 		"--with-filename",
-			-- 		"--line-number",
-			-- 		"--binary-files=without-match",
-			-- 		"--byte-offset",
-			-- 		'--exclude-dir=".*"',
-			-- 		"--extended-regexp",
-			-- 	},
-			-- 	pattern = ".*(KEYWORDS):",
-			-- },
-		},
+		config = function()
+			local options = {
+				highlight = {
+					before = "",
+					keyword = "fg",
+					after = "",
+				},
+				search = {},
+			}
+
+			local rg_exists = vim.fn.executable("rg") == 1
+
+			if not rg_exists then
+				options.search.command = "grep"
+				options.search.args = {
+					"--recursive",
+					"--color=never",
+					"--with-filename",
+					"--line-number",
+					"--binary-files=without-match",
+					"--byte-offset",
+					'--exclude-dir=".*"',
+					"--extended-regexp",
+				}
+				options.search.pattern = ".*(KEYWORDS):"
+			end
+
+			require("todo-comments").setup(options)
+		end,
 	},
 }

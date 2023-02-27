@@ -2,11 +2,11 @@
 
 ![wakatime badge](https://wakatime.com/badge/user/5fea8bc3-faf2-4ced-9ae0-78ed7f87428f/project/893e579b-0331-4ddf-bbd4-24f1353d0832.svg)
 
-**Init.lua** is a simple yet powerful modern Neovim distribution.
+**Init.lua** is a modern featureful Neovim distribution.
 
 ## Requirements
 
-- Neovim >= **0.8.0**
+- Neovim >= **0.8.0** (**nightly**)
 - Git
 - [Nerd Font](https://nerdfonts.com/) (Optional)
 

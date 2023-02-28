@@ -108,18 +108,28 @@ return {
 				},
 			})
 
-			-- TODO: fix signs
 			lsp.configure("ltex", {
 				settings = {
 					ltex = {
-						-- HACK: docs do not recommend using this
-						language = "auto",
+						-- https://valentjn.github.io/ltex/advanced-usage.html#magic-comments
+						language = "en-US",
 						additionalRules = {
 							motherTongue = "ru-RU",
 							enablePickyRules = true,
 						},
-						-- FIX: does not work
 						completionEnabled = true,
+						disabledRules = {
+							["en-US"] = {
+								-- Write notes peacefully
+								"UPPERCASE_SENTENCE_START",
+								-- "I can use whatever symbol I want!"
+								"COPYRIGHT",
+								-- I think nobody uses these quotes digitally...
+								"EN_QUOTES",
+								-- I love passive voice!
+								"PASSIVE_VOICE",
+							},
+						},
 					},
 				},
 			})

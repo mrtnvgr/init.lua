@@ -116,6 +116,7 @@ return {
 						language = "auto",
 						additionalRules = {
 							motherTongue = "ru-RU",
+							enablePickyRules = true,
 						},
 						-- FIX: does not work
 						completionEnabled = true,

@@ -130,6 +130,9 @@ return {
 								"PASSIVE_VOICE",
 							},
 						},
+						-- Use autocmd for this
+						-- TODO: use manual
+						checkFrequency = "save",
 					},
 				},
 			})

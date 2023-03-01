@@ -1,17 +1,17 @@
-local cmd = vim.cmd
+local augroup = vim.api.nvim_create_augroup("Initlua", { clear = true })
 
--- Do not comment new lines
-cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
+	desc = "Do not comment new lines",
+	group = augroup,
+	callback = function()
+		local values = { "c", "r", "o" }
+		for _, value in ipairs(values) do
+			vim.opt_local.fo:remove(value)
+		end
+	end,
+})
 
-cmd([[
-	command! W :w
-	command! Q :q
-]])
-
-local augroup = vim.api.nvim_create_augroup("Initlua", {})
-vim.api.nvim_clear_autocmds({ group = augroup })
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	desc = "Turn on wrapping on text files",
 	group = augroup,
 	pattern = { "*.md", "*.txt" },

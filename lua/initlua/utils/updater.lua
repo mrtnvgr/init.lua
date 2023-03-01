@@ -3,7 +3,7 @@ function initlua.update()
 	local pull_status, _ = initlua.git.pull(false)
 	if pull_status then
 		initlua.notify("Repository pulled successfully")
-		vim.cmd.InitluaReload()
+		initlua.reload()
 	else
 		initlua.err("Unable to pull repository")
 	end
@@ -12,7 +12,8 @@ function initlua.update()
 	initlua.lazy.update()
 
 	-- Update Tree-sitter
-	vim.cmd.TSUpdate()
+	-- ()() is necessary here
+	require("nvim-treesitter.install").update()()
 
 	-- Update LSP
 	initlua.mason.update_all()

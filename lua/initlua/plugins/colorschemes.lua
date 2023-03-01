@@ -36,7 +36,7 @@ for i, value in ipairs(colorschemes) do
 		colorschemes[i].lazy = false
 		colorschemes[i].priority = 1000
 
-		-- Make config function if none
+		-- Add a config function if a plugin doesn't have it
 		if value.config == nil then
 			colorschemes[i].config = function()
 				vim.cmd.colorscheme(default_colorscheme)

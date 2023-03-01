@@ -3,8 +3,13 @@ return {
 		"Darazaki/indent-o-matic",
 		event = "BufWinEnter",
 		config = function()
-			require("indent-o-matic").detect() -- Detect on BufEnter
-			vim.cmd([[autocmd! indent_o_matic]]) -- Disable default autocmd
+			-- Detect on BufEnter
+			require("indent-o-matic").detect()
+
+			-- Disable default autocmd
+			vim.api.nvim_clear_autocmds({ group = "indent_o_matic" })
+
+			-- Create custom autocmd
 			vim.api.nvim_create_autocmd({ "BufReadPost", "InsertChange" }, {
 				group = "indent_o_matic",
 				callback = function()

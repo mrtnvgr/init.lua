@@ -14,6 +14,9 @@ local function lsp_setup()
 
 	-- Diagnostic signs
 	initlua.set_sign("DiagnosticSignInfo", "")
+
+	-- Set border to :LspInfo window
+	require("lspconfig.ui.windows").default_options.border = "single"
 end
 
 return {

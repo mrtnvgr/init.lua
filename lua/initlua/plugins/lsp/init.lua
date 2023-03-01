@@ -1,63 +1,20 @@
 local function lsp_setup()
+	-- Start LSP setup
 	local lsp = require("initlua.plugins.lsp.core")
 
-	local cmp = require("cmp")
+	require("initlua.plugins.lsp.cmp").setup()
+	require("initlua.plugins.lsp.servers").configure()
 
-	local cmp_config = lsp.defaults.cmp_config({
-		sorting = {
-			comparators = {
-				cmp.config.compare.offset,
-				cmp.config.compare.exact,
-				cmp.config.compare.score,
-				require("cmp-under-comparator").under,
-				cmp.config.compare.kind,
-				cmp.config.compare.sort_text,
-				cmp.config.compare.length,
-				cmp.config.compare.order,
-			},
-		},
-		window = { completion = cmp.config.window.bordered() },
-		preselect = "none",
-		completion = { completeopt = "menu,menuone,noinsert,noselect" },
-	})
+	-- Setup neovim workspace
+	require("neodev").setup()
 
-	cmp.setup(cmp_config)
-
-	require("initlua.plugins.lsp.servers")
-
-	-- lsp.setup_servers({})
-
-	require("neodev").setup() -- lsp.nvim_workspace()
+	-- Finish LSP setup
 	lsp.setup()
 
-	-- null-ls setup
-	local null_ls = require("null-ls")
-	local null_opts = lsp.build_options("null-ls", {})
+	-- Setup Null-LS
+	require("initlua.plugins.lsp.null-ls").setup()
 
-	null_ls.setup({
-		on_attach = function(client, bufnr)
-			null_opts.on_attach(client, bufnr)
-			require("lsp-format").on_attach(client)
-		end,
-		sources = {},
-	})
-
-	require("mason-null-ls").setup({
-		ensure_installed = {
-			"stylua", -- Lua formatting
-			"black", -- Python formatting
-			"isort", -- Python import formatting
-			"autopep8", -- Python auto pep8 fixing
-			"jsonlint", -- JSON Linting
-			"actionlint", -- Github Actions YAML Linting
-			"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting
-		},
-		automatic_installation = true,
-		automatic_setup = true,
-	})
-	require("mason-null-ls").setup_handlers()
-
-	-- Signs
+	-- Diagnostic signs
 	initlua.set_sign("DiagnosticSignInfo", "")
 end
 

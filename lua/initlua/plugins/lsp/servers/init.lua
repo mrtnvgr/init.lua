@@ -12,16 +12,20 @@ M.ensure_installed = {
 	"taplo", -- TOML
 	"ltex", -- Language
 }
-
 lsp.ensure_installed(M.ensure_installed)
 
-for _, server in ipairs(M.ensure_installed) do
+function M.configure_server(server)
 	local path = "initlua.plugins.lsp.servers." .. server
 	local ok, settings = pcall(require, path)
 	if ok then
 		lsp.configure(server, settings)
-	else
-		-- WARN: remove on release
-		initlua.notify(server .. " failed!")
 	end
 end
+
+function M.configure()
+	for _, server in ipairs(M.ensure_installed) do
+		M.configure_server(server)
+	end
+end
+
+return M

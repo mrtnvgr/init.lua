@@ -1,6 +1,10 @@
 _G.initlua = {}
 local stdpath = vim.fn.stdpath
 
+initlua.global_settings = {}
+initlua.global_settings.ui = {}
+initlua.global_settings.ui.border = "single"
+
 initlua.install_path = stdpath("config")
 
 function initlua.cmd(cmd, show_error)

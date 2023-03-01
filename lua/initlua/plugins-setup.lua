@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = "initlua.plugins",
 	defaults = { lazy = true },
-	ui = { border = "single" },
+	ui = { border = initlua.global_settings.ui.border },
 	install = {
 		missing = true, -- turn on explicitly
 		colorscheme = {

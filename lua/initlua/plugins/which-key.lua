@@ -7,7 +7,7 @@ return {
 				width = { min = 30, max = 40 },
 			},
 			window = {
-				border = "single",
+				border = initlua.global_settings.ui.border,
 			},
 		},
 	},

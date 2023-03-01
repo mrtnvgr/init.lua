@@ -1,7 +1,5 @@
 local function lsp_setup()
 	-- Start LSP setup
-	local lsp = require("initlua.plugins.lsp.core")
-
 	require("initlua.plugins.lsp.cmp").setup()
 	require("initlua.plugins.lsp.servers").configure()
 
@@ -9,7 +7,7 @@ local function lsp_setup()
 	require("neodev").setup()
 
 	-- Finish LSP setup
-	lsp.setup()
+	require("initlua.plugins.lsp.core").setup()
 
 	-- Setup Null-LS
 	require("initlua.plugins.lsp.null-ls").setup()

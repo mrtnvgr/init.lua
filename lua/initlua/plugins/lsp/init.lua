@@ -27,7 +27,15 @@ return {
 		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					ui = {
+						check_outdated_packages_on_open = false,
+						border = initlua.global_settings.ui.border,
+					},
+				},
+			},
 			{ "williamboman/mason-lspconfig.nvim" },
 
 			-- Autocompletion

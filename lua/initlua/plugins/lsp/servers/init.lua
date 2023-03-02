@@ -10,20 +10,23 @@ function M.get_servers()
 	local path_sep = path._sep
 	local servers = plenary_scandir.scan_dir(path.filename)
 
-	for i, server in ipairs(servers) do
+	local valid_servers = {}
+
+	for _, server in ipairs(servers) do
 		-- Get filename from path
 		server = vim.split(server, path_sep, { plain = true, trimempty = true })
 		server = server[#server]
 
 		-- Remove ".lua" prefix from filenames
-		if server:match("init") then
-			-- We don't want this file to be sourced again
-			servers[i] = nil
-		else
-			servers[i] = server:gsub(".lua$", "")
+		server = server:gsub(".lua$", "")
+
+		-- This file is not a valid lsp server
+		if not server:match("init") then
+			table.insert(valid_servers, server)
 		end
 	end
-	return servers
+
+	return valid_servers
 end
 
 function M.configure()
@@ -33,12 +36,13 @@ function M.configure()
 	lsp.ensure_installed(servers)
 
 	for _, server in ipairs(servers) do
+		print(server)
 		local ok, settings = pcall(require, "initlua.plugins.lsp.servers." .. server)
 		if ok then
 			-- Configure server only if any configuration is present
-			if settings ~= {} then
-				lsp.configure(server, settings)
-			end
+			-- if settings ~= {} then
+			lsp.configure(server, settings)
+			-- end
 		end
 	end
 end

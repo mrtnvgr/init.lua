@@ -36,7 +36,6 @@ function M.configure()
 	lsp.ensure_installed(servers)
 
 	for _, server in ipairs(servers) do
-		print(server)
 		local ok, settings = pcall(require, "initlua.plugins.lsp.servers." .. server)
 		if ok then
 			-- Configure server only if any configuration is present

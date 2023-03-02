@@ -68,5 +68,8 @@ return {
 			"handlebars",
 			"hbs",
 		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 }

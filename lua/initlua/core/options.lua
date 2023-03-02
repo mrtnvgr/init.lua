@@ -27,6 +27,7 @@ opt.mouse = "a"
 -- appearance
 opt.termguicolors = true
 opt.updatetime = 300
+opt.timeoutlen = 300
 
 -- backspace
 opt.backspace = "indent,eol,start"

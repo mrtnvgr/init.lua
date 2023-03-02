@@ -50,7 +50,6 @@ local modules = {
 	"updater",
 
 	-- Miscellaneous
-	"cs",
 	"format",
 }
 

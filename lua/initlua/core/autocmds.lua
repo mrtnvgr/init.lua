@@ -19,11 +19,3 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		vim.opt_local.wrap = true
 	end,
 })
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	desc = "Run cs on colorscheme change",
-	group = augroup,
-	callback = function()
-		initlua.cs.set(vim.fn.expand("<amatch>"))
-	end,
-})

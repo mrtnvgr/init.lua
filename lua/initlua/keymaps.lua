@@ -16,12 +16,16 @@ wk.register({
 
 	t = {
 		name = "Tabs",
-		o = { ":tabnew<CR>", "Open new tab" },
+		o = { ":enew<CR>", "Open new buffer" },
+		["<ENTER>"] = { ":enew<CR>", "Open new buffer" },
+
 		x = { ":BufferClose<CR>", "Close current tab" },
 		["<BS>"] = { ":BufferClose<CR>", "Close current tab" },
+
 		n = { ":BufferNext<CR>", "Go to next tab" },
-		p = { ":BufferPrevious<CR>", "Go to previous tab" },
 		["["] = { ":BufferNext<CR>", "Go to next tab" },
+
+		p = { ":BufferPrevious<CR>", "Go to previous tab" },
 		["]"] = { ":BufferPrevious<CR>", "Go to previous tab" },
 	},
 

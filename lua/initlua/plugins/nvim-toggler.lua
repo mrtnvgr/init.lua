@@ -2,6 +2,10 @@ return {
 	{
 		"nguyenvukhang/nvim-toggler",
 		event = "BufWinEnter",
-		config = true,
+		opts = {
+			inverses = {
+				["True"] = "False",
+			},
+		},
 	},
 }

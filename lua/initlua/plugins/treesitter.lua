@@ -36,6 +36,8 @@ return {
 				indent = { enable = true },
 
 				autotag = { enable = true },
+
+				context_commentstring = { enable = true, enable_autocmd = false },
 			})
 		end,
 	},
@@ -68,6 +70,13 @@ return {
 			"handlebars",
 			"hbs",
 		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},

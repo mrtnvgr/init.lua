@@ -51,3 +51,9 @@ map("n", "x", '"_x')
 -- Increment/Decrement numbers
 map("n", "<leader>+", "<C-a>")
 map("n", "<leader>-", "<C-x>")
+
+-- Disable arrow keys
+map("", "<up>", "<nop>")
+map("", "<down>", "<nop>")
+map("", "<left>", "<nop>")
+map("", "<right>", "<nop>")

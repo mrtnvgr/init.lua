@@ -13,6 +13,7 @@ return {
 					"yaml",
 					"json",
 					"toml",
+					"html",
 					"vim",
 					"help",
 					"query",

@@ -1,4 +1,5 @@
 require("initlua.utils")
-require("initlua.core")
+require("initlua.autocmds")
 require("initlua.plugins-setup")
 require("initlua.options")
+require("initlua.keymaps")

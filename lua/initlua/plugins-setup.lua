@@ -21,8 +21,7 @@ require("lazy").setup({
 			"tokyonight-night",
 			"habamax",
 		},
-		checker = {
-			enabled = false, -- turn off explicitly
-		},
+		checker = { enabled = false },
+		change_detection = { enabled = false, notify = false },
 	},
 })

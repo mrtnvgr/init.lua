@@ -1,5 +1,4 @@
 local modules = {
-	"options",
 	"keymaps",
 	"autocmds",
 }

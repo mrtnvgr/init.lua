@@ -8,6 +8,7 @@ local defaults = { noremap = true, silent = true }
 
 local status, wk = pcall(require, "which-key")
 if not status then
+	initlua.err("Failed to load which-key mappings")
 	return
 end
 

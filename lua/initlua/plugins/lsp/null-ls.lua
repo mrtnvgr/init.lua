@@ -2,7 +2,6 @@ local M = {}
 
 M.ensure_installed = {
 	"stylua", -- Lua formatting
-	"selene", -- Lua Linting
 	"black", -- Python formatting
 	"isort", -- Python import formatting
 	"autopep8", -- Python auto pep8 fixing

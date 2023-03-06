@@ -13,12 +13,21 @@
 - _Any_ C compiler
 - [Nerd Font](https://nerdfonts.com/) (Optional)
 
-## Installation
+## Installation (Linux)
 
 ```console
 pip install pynvim
-npm install neovim tree-sitter-cli
+npm install --global neovim tree-sitter-cli
 git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
+```
+
+## Installation (Windows)
+
+```console
+winget install Git.Git Neovim.Neovim GnuWin32.Make OpenJS.NodeJS Python.Python.3
+pip install pynvim
+npm install --global neovim tree-sitter-cli
+git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 ```
 
 ## Commands

@@ -27,7 +27,7 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 powershell -ExecutionPolicy RemoteSigned -Command "irm get.scoop.sh | iex"
 scoop install git
 scoop bucket add versions
-scoop install neovim-nightly nodejs python
+scoop install gcc neovim-nightly nodejs python
 pip install pynvim
 npm install --global neovim tree-sitter-cli
 git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/

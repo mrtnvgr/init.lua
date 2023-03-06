@@ -54,3 +54,6 @@ opt.shortmess:append("s") -- do not show "search hit BOTTOM ..."
 -- HACK: status line hides on InitluaReload
 -- opt.laststatus = 0
 -- opt.ruler = false
+
+-- hide ~ from blank lines
+vim.opt.fillchars:append("eob: ")

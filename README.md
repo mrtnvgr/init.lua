@@ -11,7 +11,7 @@
 - Python 3 and `pynvim` pip package
 - NodeJS and `neovim`, `tree-sitter-cli` npm packages
 - _Any_ C compiler
-- [Nerd Font](https://nerdfonts.com/) (Optional)
+- [Nerd Font](https://nerdfonts.com/)
 
 ## Installation (Linux)
 

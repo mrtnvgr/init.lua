@@ -27,12 +27,14 @@ function M.load_settings(type, colorscheme)
 end
 
 vim.api.nvim_create_autocmd("ColorSchemePre", {
+	group = "Initlua",
 	callback = function()
 		M.load_settings("pre", vim.fn.expand("<amatch>"))
 	end,
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
+	group = "Initlua",
 	callback = function()
 		M.load_settings("post", vim.fn.expand("<amatch>"))
 	end,

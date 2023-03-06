@@ -4,6 +4,7 @@ local stdpath = vim.fn.stdpath
 initlua.global_settings = {}
 initlua.global_settings.ui = {}
 initlua.global_settings.ui.border = "single"
+initlua.global_settings.default_colorscheme = "gruvbox"
 
 initlua.install_path = stdpath("config")
 

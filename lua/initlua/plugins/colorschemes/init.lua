@@ -1,8 +1,6 @@
 local M = {}
 
-local default_colorscheme = "tokyonight"
-
-local colorschemes = {
+M.colorschemes = {
 	-- Tokyonight
 	{
 		"folke/tokyonight.nvim",
@@ -40,16 +38,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-for i, value in ipairs(colorschemes) do
-	if value.name == default_colorscheme then
+for i, value in ipairs(M.colorschemes) do
+	if value.name == initlua.global_settings.default_colorscheme then
 		-- Prioritize colorscheme
-		colorschemes[i].lazy = false
-		colorschemes[i].priority = 1000
+		M.colorschemes[i].lazy = false
+		M.colorschemes[i].priority = 1000
 
 		-- Add a config function if a plugin doesn't have it
 		if value.config == nil then
-			colorschemes[i].config = function()
-				vim.cmd.colorscheme(default_colorscheme)
+			M.colorschemes[i].config = function()
+				vim.cmd.colorscheme(initlua.global_settings.default_colorscheme)
 			end
 		end
 
@@ -57,4 +55,4 @@ for i, value in ipairs(colorschemes) do
 	end
 end
 
-return colorschemes
+return M.colorschemes

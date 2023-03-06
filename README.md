@@ -8,11 +8,16 @@
 
 - Neovim >= **0.8.0** (**nightly**)
 - Git
+- Python 3 and `pynvim` pip package
+- NodeJS and `neovim`, `tree-sitter-cli` npm packages
+- _Any_ C compiler
 - [Nerd Font](https://nerdfonts.com/) (Optional)
 
 ## Installation
 
 ```console
+pip install pynvim
+npm install neovim tree-sitter-cli
 git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 ```
 

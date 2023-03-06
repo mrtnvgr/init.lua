@@ -39,9 +39,9 @@ function M.configure()
 		local ok, settings = pcall(require, "initlua.plugins.lsp.servers." .. server)
 		if ok then
 			-- Configure server only if any configuration is present
-			-- if settings ~= {} then
-			lsp.configure(server, settings)
-			-- end
+			if settings ~= {} then
+				lsp.configure(server, settings)
+			end
 		end
 	end
 end

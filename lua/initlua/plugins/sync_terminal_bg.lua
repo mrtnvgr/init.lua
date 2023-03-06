@@ -1,4 +1,3 @@
 return {
-	"mrtnvgr/bg.nvim",
-	branch = "update-on-uienter",
+	{ "mrtnvgr/bg.nvim", branch = "cursor", lazy = false },
 }

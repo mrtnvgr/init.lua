@@ -24,7 +24,9 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 ## Installation (Windows)
 
 ```console
-winget install Git.Git Neovim.Neovim GnuWin32.Make OpenJS.NodeJS Python.Python.3
+powershell -ExecutionPolicy RemoteSigned -Command "irm get.scoop.sh | iex"
+scoop install git
+scoop install neovim-nightly nodejs python3
 pip install pynvim
 npm install --global neovim tree-sitter-cli
 git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/

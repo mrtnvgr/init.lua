@@ -39,7 +39,7 @@ function M.configure()
 		local ok, settings = pcall(require, "initlua.plugins.lsp.servers." .. server)
 		if ok then
 			-- Configure server only if any configuration is present
-			if settings ~= {} then
+			if not vim.tbl_isempty(settings) then
 				lsp.configure(server, settings)
 			end
 		end

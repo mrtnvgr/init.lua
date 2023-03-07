@@ -1,3 +1,3 @@
 return {
-	{ "mrtnvgr/bg.nvim", branch = "cursor", lazy = false },
+	{ "typicode/bg.nvim", lazy = false },
 }

@@ -18,6 +18,12 @@ M.colorschemes = {
 		"catppuccin/nvim",
 		name = "catppuccin",
 	},
+
+	-- Rose pine
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+	},
 }
 
 function M.load_settings(type, colorscheme)

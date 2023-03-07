@@ -37,13 +37,14 @@ git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 
 ## Commands
 
-| Neovim command                  | Lua command                  | Description                           |
-| ------------------------------- | ---------------------------- | ------------------------------------- |
-| `InitluaUpdate`                 | `initlua.update()`           | update everything                     |
-| `InitluaReload`                 | `initlua.reload()`           | reload `initlua.core.*` lua files     |
-| `InitluaToggleFormatting`       | `initlua.format.toggle()`    | toggle null-ls formatting             |
-| `InitluaGitPull`                | `initlua.git.pull()`         | pull updates from init.lua repository |
-| `InitluaUpdateAllMasonPackages` | `initlua.mason.update_all()` | update all Mason packages             |
+| Neovim command                  | Lua command                    | Description                           |
+| ------------------------------- | ------------------------------ | ------------------------------------- |
+| `InitluaUpdate`                 | `initlua.update()`             | update everything                     |
+| `InitluaReload`                 | `initlua.reload()`             | reload `initlua.core.*` lua files     |
+| `InitluaToggleFormatting`       | `initlua.format.toggle()`      | toggle null-ls formatting             |
+| `InitluaGitPull`                | `initlua.git.pull()`           | pull updates from init.lua repository |
+| `InitluaUpdateAllMasonPackages` | `initlua.mason.update_all()`   | update all Mason packages             |
+| `InitluaSelectColorscheme`      | `initlua.select_colorscheme()` | pick a colorscheme                    |
 
 **All other commands are internal and are not recommended for use.**
 

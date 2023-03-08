@@ -1,29 +1,10 @@
 local M = {}
 
 M.colorschemes = {
-	-- Tokyonight
-	{
-		"folke/tokyonight.nvim",
-		name = "tokyonight",
-	},
-
-	-- Gruvbox
-	{
-		"ellisonleao/gruvbox.nvim",
-		name = "gruvbox",
-	},
-
-	-- Catppuccin
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
-
-	-- Rose pine
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-	},
+	{ "folke/tokyonight.nvim", name = "tokyonight" },
+	{ "ellisonleao/gruvbox.nvim", name = "gruvbox" },
+	{ "catppuccin/nvim", name = "catppuccin" },
+	{ "rose-pine/neovim", name = "rose-pine" },
 }
 
 function M.load_settings(type, colorscheme)

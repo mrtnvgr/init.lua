@@ -18,7 +18,7 @@ require("lazy").setup({
 	install = {
 		missing = true, -- turn on explicitly
 		colorscheme = {
-			"tokyonight-night",
+			initlua.global_settings.default_colorscheme,
 			"habamax",
 		},
 		checker = { enabled = false },

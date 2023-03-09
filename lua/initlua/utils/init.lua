@@ -6,6 +6,9 @@ initlua.settings = {
 		border = "single",
 	},
 	colorscheme = "rose-pine",
+	optional_plugins = {
+		wakatime = false,
+	},
 }
 
 initlua.install_path = stdpath("config")

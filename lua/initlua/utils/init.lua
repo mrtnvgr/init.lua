@@ -1,10 +1,12 @@
 _G.initlua = {}
 local stdpath = vim.fn.stdpath
 
-initlua.global_settings = {}
-initlua.global_settings.ui = {}
-initlua.global_settings.ui.border = "single"
-initlua.global_settings.default_colorscheme = "rose-pine"
+initlua.global_settings = {
+	ui = {
+		border = "single",
+	},
+	default_colorscheme = "rose-pine",
+}
 
 initlua.install_path = stdpath("config")
 
@@ -42,6 +44,7 @@ end
 
 local modules = {
 	-- General utils
+	"cache",
 	"reload",
 
 	-- Required for updating

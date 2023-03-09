@@ -8,6 +8,7 @@ function initlua.select_colorscheme()
 	vim.ui.select(colorschemes, { prompt = "Select colorscheme" }, function(selected)
 		if selected ~= nil then
 			vim.cmd.colorscheme(selected)
+			initlua.global_settings.default_colorscheme = selected
 		end
 	end)
 end
@@ -17,5 +18,3 @@ vim.api.nvim_create_user_command(
 	initlua.select_colorscheme,
 	{ desc = "Select colorscheme" }
 )
-
--- TODO: remember chosen colorscheme

@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 for i, value in ipairs(M.colorschemes) do
-	if value.name == initlua.global_settings.default_colorscheme then
+	if value.name == initlua.settings.colorscheme then
 		-- Prioritize colorscheme
 		M.colorschemes[i].lazy = false
 		M.colorschemes[i].priority = 1000
@@ -36,7 +36,7 @@ for i, value in ipairs(M.colorschemes) do
 		-- Add a config function if a plugin doesn't have it
 		if value.config == nil then
 			M.colorschemes[i].config = function()
-				vim.cmd.colorscheme(initlua.global_settings.default_colorscheme)
+				vim.cmd.colorscheme(initlua.settings.colorscheme)
 			end
 		end
 

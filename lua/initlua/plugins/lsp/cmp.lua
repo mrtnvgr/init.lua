@@ -19,8 +19,8 @@ function M.setup()
 			},
 		},
 		window = {
-			completion = cmp.config.window.bordered({ border = initlua.global_settings.ui.border }),
-			documentation = cmp.config.window.bordered({ border = initlua.global_settings.ui.border }),
+			completion = cmp.config.window.bordered({ border = initlua.settings.ui.border }),
+			documentation = cmp.config.window.bordered({ border = initlua.settings.ui.border }),
 		},
 		preselect = "none",
 		completion = { completeopt = "menu,menuone,noinsert,noselect" },

@@ -14,11 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = "initlua.plugins",
 	defaults = { lazy = true },
-	ui = { border = initlua.global_settings.ui.border },
+	ui = { border = initlua.settings.ui.border },
 	install = {
 		missing = true, -- turn on explicitly
 		colorscheme = {
-			initlua.global_settings.default_colorscheme,
+			initlua.settings.colorscheme,
 			"habamax",
 		},
 		checker = { enabled = false },

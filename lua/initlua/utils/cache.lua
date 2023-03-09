@@ -1,11 +1,11 @@
 initlua.cache = {}
--- -- TODO: on windows this will fail
+-- TODO: on windows this will fail
 initlua.cache.path = initlua.install_path .. "/" .. "cache.json"
 
 function initlua.cache.get()
 	local file = io.open(initlua.cache.path, "r")
 	if not file then
-		return initlua.global_settings
+		return initlua.settings
 	else
 		local cache = file:read("*a")
 		file:close()
@@ -15,13 +15,13 @@ end
 
 function initlua.cache.load()
 	local cache = initlua.cache.get()
-	initlua.global_settings = vim.tbl_deep_extend("force", initlua.global_settings, cache)
+	initlua.settings = vim.tbl_deep_extend("force", initlua.settings, cache)
 end
 
 function initlua.cache.save()
 	local file = io.open(initlua.cache.path, "w")
 	if file then
-		local encoded = vim.json.encode(initlua.global_settings)
+		local encoded = vim.json.encode(initlua.settings)
 		file:write(encoded)
 		file:close()
 	else

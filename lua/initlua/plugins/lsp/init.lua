@@ -16,7 +16,7 @@ local function lsp_setup()
 	initlua.set_sign("DiagnosticSignInfo", "")
 
 	-- Set border for :LspInfo window
-	require("lspconfig.ui.windows").default_options.border = initlua.global_settings.ui.border
+	require("lspconfig.ui.windows").default_options.border = initlua.settings.ui.border
 end
 
 return {
@@ -32,7 +32,7 @@ return {
 				opts = {
 					ui = {
 						check_outdated_packages_on_open = false,
-						border = initlua.global_settings.ui.border,
+						border = initlua.settings.ui.border,
 					},
 				},
 			},

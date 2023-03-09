@@ -1,11 +1,11 @@
 _G.initlua = {}
 local stdpath = vim.fn.stdpath
 
-initlua.global_settings = {
+initlua.settings = {
 	ui = {
 		border = "single",
 	},
-	default_colorscheme = "rose-pine",
+	colorscheme = "rose-pine",
 }
 
 initlua.install_path = stdpath("config")

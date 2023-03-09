@@ -1,13 +1,11 @@
 function initlua.reload()
-	local reload_module = require("plenary.reload").reload_module
-
 	local reloaded = true
 
 	for name, _ in pairs(package.loaded) do
-		if not name:match("^initlua.plugins") then
-			local status, _ = pcall(reload_module, name)
-			local status2, _ = pcall(require, name)
-			if not status or not status2 then
+		if name:match("^initlua") and not name:match("^initlua.plugins") then
+			package.loaded[name] = nil
+			local status, _ = pcall(require, name)
+			if not status then
 				reloaded = false
 				break
 			end

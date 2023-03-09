@@ -57,3 +57,7 @@ map("", "<up>", "<nop>")
 map("", "<down>", "<nop>")
 map("", "<left>", "<nop>")
 map("", "<right>", "<nop>")
+
+-- Don't copy when pasting over selection
+map("v", "p", '"_dP')
+map("v", "P", '"_dp')

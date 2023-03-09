@@ -37,9 +37,16 @@ function initlua.cache.save()
 end
 
 vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
-	desc = "Save settings to cache file",
+	desc = "Save settings file",
 	callback = function()
 		initlua.cache.save()
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+	desc = "Save colorscheme name to settings",
+	callback = function()
+		initlua.settings.colorscheme = vim.fn.expand("<amatch>")
 	end,
 })
 

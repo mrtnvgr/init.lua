@@ -27,8 +27,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+local found = false
 for i, value in ipairs(M.colorschemes) do
 	if value.name == initlua.settings.colorscheme then
+		found = true
 		-- Prioritize colorscheme
 		M.colorschemes[i].lazy = false
 		M.colorschemes[i].priority = 1000
@@ -42,6 +44,11 @@ for i, value in ipairs(M.colorschemes) do
 
 		break
 	end
+end
+
+-- Setup built-in colorscheme
+if not found then
+	vim.cmd.colorscheme(initlua.settings.colorscheme)
 end
 
 return M.colorschemes

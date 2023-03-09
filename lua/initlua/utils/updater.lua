@@ -17,6 +17,8 @@ function initlua.update()
 
 	-- Update LSP
 	initlua.mason.update_all()
+
+	-- TODO: cache support
 end
 
 vim.api.nvim_create_user_command("InitluaUpdate", initlua.update, { desc = "Update All Stuff" })

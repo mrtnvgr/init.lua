@@ -1,6 +1,13 @@
 initlua.cache = {}
--- TODO: on windows this will fail
-initlua.cache.path = initlua.install_path .. "/" .. "cache.json"
+
+-- Using this instead of plenary.nvim, because plugins are loaded later.
+local is_win = vim.fn.has("win32")
+local path_sep = "/"
+if is_win then
+	path_sep = "\\"
+end
+
+initlua.cache.path = initlua.install_path .. path_sep .. "cache.json"
 
 function initlua.cache.get()
 	local file = io.open(initlua.cache.path, "r")

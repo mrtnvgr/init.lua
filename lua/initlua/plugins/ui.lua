@@ -9,5 +9,19 @@ return {
 		},
 	},
 
-	{ "stevearc/dressing.nvim", event = "VeryLazy" },
+	{
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
+		opts = {
+			input = { border = initlua.settings.ui.border },
+			select = {
+				nui = {
+					border = { style = initlua.settings.ui.border },
+				},
+				builtin = {
+					border = initlua.settings.ui.border,
+				},
+			},
+		},
+	},
 }

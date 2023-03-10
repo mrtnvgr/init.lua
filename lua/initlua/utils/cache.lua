@@ -26,13 +26,21 @@ function initlua.cache.load()
 end
 
 function initlua.cache.save()
-	local file = io.open(initlua.cache.path, "w")
-	if file then
-		local encoded = vim.json.encode(initlua.settings)
-		file:write(encoded)
-		file:close()
-	else
-		initlua.err("Failed to save cache file!")
+	local saved_settings = initlua.cache.get()
+	-- TODO: move to initlua module
+	local do_tables_match = function(a, b)
+		return table.concat(a) == table.concat(b)
+	end
+
+	if not do_tables_match(saved_settings, initlua.settings) then
+		local file = io.open(initlua.cache.path, "w")
+		if file then
+			local encoded = vim.json.encode(initlua.settings)
+			file:write(encoded)
+			file:close()
+		else
+			initlua.err("Failed to save cache file!")
+		end
 	end
 end
 

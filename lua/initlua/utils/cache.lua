@@ -21,8 +21,15 @@ function initlua.cache.get()
 end
 
 function initlua.cache.load()
-	local cache = initlua.cache.get()
-	initlua.settings = vim.tbl_deep_extend("force", initlua.settings, cache)
+	local saved_settings = initlua.cache.get()
+	-- TODO: move to initlua module
+	local do_tables_match = function(a, b)
+		return table.concat(a) == table.concat(b)
+	end
+
+	if not do_tables_match(saved_settings, initlua.settings) then
+		initlua.settings = vim.tbl_deep_extend("force", initlua.settings, saved_settings)
+	end
 end
 
 function initlua.cache.save()

@@ -1,9 +1,8 @@
 initlua.cache = {}
 
 -- Using this instead of plenary.nvim, because plugins are loaded later.
-local is_win = vim.fn.has("win32")
 local path_sep = "/"
-if is_win then
+if vim.fn.has("win32") == 1 then
 	path_sep = "\\"
 end
 
@@ -21,33 +20,20 @@ function initlua.cache.get()
 end
 
 function initlua.cache.load()
-	local saved_settings = initlua.cache.get()
-	-- TODO: move to initlua module
-	local do_tables_match = function(a, b)
-		return table.concat(a) == table.concat(b)
-	end
-
-	if not do_tables_match(saved_settings, initlua.settings) then
-		initlua.settings = vim.tbl_deep_extend("force", initlua.settings, saved_settings)
+	local cache = initlua.cache.get()
+	if cache ~= initlua.settings then
+		initlua.settings = vim.tbl_deep_extend("force", initlua.settings, cache)
 	end
 end
 
 function initlua.cache.save()
-	local saved_settings = initlua.cache.get()
-	-- TODO: move to initlua module
-	local do_tables_match = function(a, b)
-		return table.concat(a) == table.concat(b)
-	end
-
-	if not do_tables_match(saved_settings, initlua.settings) then
-		local file = io.open(initlua.cache.path, "w")
-		if file then
-			local encoded = vim.json.encode(initlua.settings)
-			file:write(encoded)
-			file:close()
-		else
-			initlua.err("Failed to save cache file!")
-		end
+	local file = io.open(initlua.cache.path, "w")
+	if file then
+		local encoded = vim.json.encode(initlua.settings)
+		file:write(encoded)
+		file:close()
+	else
+		initlua.err("Failed to save cache file!")
 	end
 end
 

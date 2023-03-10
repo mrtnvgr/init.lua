@@ -11,7 +11,7 @@ return {
 
 	{
 		"stevearc/dressing.nvim",
-		event = "VeryLazy",
+		event = "VimEnter",
 		opts = {
 			input = { border = initlua.settings.ui.border },
 			select = {

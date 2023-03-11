@@ -9,6 +9,7 @@ local M = {}
 -- ================================================================================
 -- CR01: Background of floating windows must be transparent
 -- CR02: Background of SignColumn must be linked to Normal background
+-- TODO: CR99: Lualine must look like rose-pine's theme
 
 M.colorschemes = {
 	{ "folke/tokyonight.nvim", name = "tokyonight" },

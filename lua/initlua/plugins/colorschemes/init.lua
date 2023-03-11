@@ -15,21 +15,35 @@ local M = {}
 -- CR06: MsgArea and NoiceLspProgressTitle backgrounds must be linked to Normal background
 
 M.colorschemes = {
-	-- TODO: add support for names key (i.e. names = {"nightfox", "carbonfox", ...}):
-	-- If colorscheme in names, load settings for colorscheme (or if pcall == nil, load settings for name key of colorscheme)
-	-- Prioritize colorscheme if colorscheme in value.names
-	{ "folke/tokyonight.nvim", name = "tokyonight" },
-	{ "ellisonleao/gruvbox.nvim", name = "gruvbox" },
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "Everblush/nvim", name = "everblush" },
-	{ "EdenEast/nightfox.nvim", name = "nightfox" },
+	{ "folke/tokyonight.nvim", name = "tokyonight", names = { "tokyonight" } },
+	{ "ellisonleao/gruvbox.nvim", name = "gruvbox", names = { "gruvbox" } },
+	{ "catppuccin/nvim", name = "catppuccin", names = { "catppuccin" } },
+	{ "rose-pine/neovim", name = "rose-pine", names = { "rose-pine" } },
+	{ "Everblush/nvim", name = "everblush", names = { "everblush" } },
+
+	{
+		"EdenEast/nightfox.nvim",
+		name = "nightfox",
+		names = { "nightfox", "duskfox", "nordfox", "terafox", "carbonfox" },
+	},
 }
 
-function M.load_settings(type, colorscheme)
+local function load(type, colorscheme)
 	local settings = "initlua.plugins.colorschemes." .. type .. "." .. colorscheme
 	package.loaded[settings] = nil
-	pcall(require, settings)
+	return pcall(require, settings)
+end
+
+function M.load_settings(type, colorscheme)
+	local ok, _ = load(type, colorscheme)
+	if not ok then
+		for _, value in ipairs(M.colorschemes) do
+			if vim.tbl_contains(value.names, colorscheme) then
+				load(type, value.name)
+				break
+			end
+		end
+	end
 end
 
 vim.api.nvim_create_autocmd("ColorSchemePre", {
@@ -48,7 +62,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 local found = false
 for i, value in ipairs(M.colorschemes) do
-	if value.name == initlua.settings.colorscheme then
+	if value.name == initlua.settings.colorscheme or vim.tbl_contains(value.names, initlua.settings.colorscheme) then
 		found = true
 		-- Prioritize colorscheme
 		M.colorschemes[i].lazy = false
@@ -67,7 +81,7 @@ end
 
 -- Setup built-in colorscheme
 if not found then
-	vim.cmd.colorscheme(initlua.settings.colorscheme)
+	pcall(vim.cmd.colorscheme, initlua.settings.colorscheme)
 end
 
 return M.colorschemes

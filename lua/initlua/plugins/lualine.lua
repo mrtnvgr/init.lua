@@ -7,24 +7,19 @@ return {
 	config = function()
 		local lualine = require("lualine")
 
+		local custom_auto = require("lualine.themes.auto")
+		custom_auto.normal.c.bg = "NONE"
+
 		lualine.setup({
 			options = {
+				theme = custom_auto,
 				section_separators = "",
 				component_separators = "",
 			},
 			refresh = {
 				statusline = vim.opt.updatetime,
 			},
-			sections = {
-				lualine_x = {
-					{ "filetype", color = { bg = "NONE" } },
-				},
-			},
 		})
-
-		-- Forcefully remove background from lualine
-		vim.api.nvim_set_hl(0, "lualine_c_normal", { bg = "NONE" })
-		vim.api.nvim_set_hl(0, "lualine_c_inactive", { bg = "NONE" })
 
 		lualine.hide({
 			place = { "tabline" },

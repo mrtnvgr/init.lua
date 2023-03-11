@@ -1,9 +1,14 @@
 function initlua.select_colorscheme()
 	package.loaded["initlua.plugins.colorschemes"] = nil
-	local colorschemes = require("initlua.plugins.colorschemes")
-	for i, value in ipairs(colorschemes) do
-		colorschemes[i] = value.name
+	local colorscheme_tables = require("initlua.plugins.colorschemes")
+	local colorschemes = {}
+	for _, value in ipairs(colorscheme_tables) do
+		for _, colorscheme in ipairs(value.names) do
+			table.insert(colorschemes, colorscheme)
+		end
 	end
+
+	table.sort(colorschemes)
 
 	vim.ui.select(colorschemes, { prompt = "Select colorscheme" }, function(selected)
 		if selected ~= nil then

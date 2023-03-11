@@ -15,7 +15,8 @@ require("gruvbox").setup({
 		GruvboxRedSign = { bg = "" },
 		GruvboxBlueSign = { bg = "" },
 		GruvboxAquaSign = { bg = "" },
-
+		
+		-- CR06
 		MsgArea = { link = "Normal" },
 		NoiceLspProgressTitle = { link = "Normal" },
 

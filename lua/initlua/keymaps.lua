@@ -61,3 +61,7 @@ map("", "<right>", "<nop>")
 -- Don't copy when pasting over selection
 map("v", "p", '"_dP')
 map("v", "P", '"_dp')
+
+-- Initlua's keymaps
+map("n", "<leader>au", initlua.update)
+map("n", "<leader>asc", initlua.select_colorscheme)

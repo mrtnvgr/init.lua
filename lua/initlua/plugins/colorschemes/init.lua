@@ -8,6 +8,7 @@ local M = {}
 -- Every rule in colorscheme setup should be commented.
 -- ================================================================================
 -- CR01: Background of floating windows must be transparent
+-- CR02: Background of SignColumn must be linked to Normal background
 
 M.colorschemes = {
 	{ "folke/tokyonight.nvim", name = "tokyonight" },

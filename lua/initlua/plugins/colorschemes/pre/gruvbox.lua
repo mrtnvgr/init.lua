@@ -6,9 +6,8 @@ require("gruvbox").setup({
 		-- CR01
 		Pmenu = { bg = "" },
 
+		-- CR02
 		SignColumn = { link = "Normal" },
-		MsgArea = { link = "Normal" },
-		NoiceLspProgressTitle = { link = "Normal" },
 		GruvboxGreenSign = { bg = "" },
 		GruvboxOrangeSign = { bg = "" },
 		GruvboxPurpleSign = { bg = "" },
@@ -16,6 +15,11 @@ require("gruvbox").setup({
 		GruvboxRedSign = { bg = "" },
 		GruvboxBlueSign = { bg = "" },
 		GruvboxAquaSign = { bg = "" },
-		Cursor = { reverse = true },
+
+		MsgArea = { link = "Normal" },
+		NoiceLspProgressTitle = { link = "Normal" },
+
+		-- Fix cursor in noice.nvim
+		NoiceCursor = { reverse = true },
 	},
 })

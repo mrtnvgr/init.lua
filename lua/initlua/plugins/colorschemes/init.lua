@@ -19,6 +19,7 @@ M.colorschemes = {
 	{ "ellisonleao/gruvbox.nvim", name = "gruvbox" },
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "Everblush/nvim", name = "everblush" },
 }
 
 function M.load_settings(type, colorscheme)

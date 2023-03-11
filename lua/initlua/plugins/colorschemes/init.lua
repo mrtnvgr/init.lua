@@ -13,6 +13,7 @@ local M = {}
 -- CR04: Matching characted must be highlighted in completion menu
 -- CR05: Comments must be grey
 -- CR06: MsgArea and NoiceLspProgressTitle backgrounds must be linked to Normal background
+-- CR07: Pmenu must have a uniform colors
 
 M.colorschemes = {
 	{ "folke/tokyonight.nvim", name = "tokyonight", names = { "tokyonight" } },
@@ -20,6 +21,7 @@ M.colorschemes = {
 	{ "catppuccin/nvim", name = "catppuccin", names = { "catppuccin" } },
 	{ "rose-pine/neovim", name = "rose-pine", names = { "rose-pine" } },
 	{ "Everblush/nvim", name = "everblush", names = { "everblush" } },
+	{ "rebelot/kanagawa.nvim", name = "kanagawa", names = { "kanagawa-dragon", "kanagawa-wave" } },
 
 	{
 		"EdenEast/nightfox.nvim",

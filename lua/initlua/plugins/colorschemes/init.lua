@@ -1,5 +1,14 @@
 local M = {}
 
+-- COLORSCHEME REFERENCE:
+-- ================================================================================
+-- This is a list of rules that every colorscheme in M.colorschemes list must obey.
+-- On change, it is required to apply new change to the all colorschemes.
+-- Rules are named like this "CF{NUMBER}".
+-- Every rule in colorscheme setup should be commented.
+-- ================================================================================
+-- CR01: Background of floating windows must be transparent
+
 M.colorschemes = {
 	{ "folke/tokyonight.nvim", name = "tokyonight" },
 	{ "ellisonleao/gruvbox.nvim", name = "gruvbox" },

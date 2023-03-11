@@ -2,6 +2,10 @@ require("gruvbox").setup({
 	inverse = false,
 	contrast = "hard",
 	overrides = {
+
+		-- CR01
+		Pmenu = { bg = "" },
+
 		SignColumn = { link = "Normal" },
 		MsgArea = { link = "Normal" },
 		NoiceLspProgressTitle = { link = "Normal" },

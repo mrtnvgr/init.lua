@@ -59,6 +59,7 @@ local modules = {
 	-- Miscellaneous
 	"format",
 	"colorscheme-picker",
+	"cs",
 }
 
 initlua.load_modules("initlua.utils", modules)

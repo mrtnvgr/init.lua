@@ -13,6 +13,7 @@ function initlua.select_colorscheme()
 	vim.ui.select(colorschemes, { prompt = "Select colorscheme" }, function(selected)
 		if selected ~= nil then
 			vim.cmd.colorscheme(selected)
+			initlua.cs.sync()
 		end
 	end)
 end

@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
 	desc = "Save colorscheme name to settings",
 	callback = function()
 		initlua.settings.colorscheme = vim.fn.expand("<amatch>")

@@ -1,4 +1,5 @@
-return {
+-- TODO: this should work on v2 LspZero branch
+require("ltex-ls").setup({
 	settings = {
 		ltex = {
 			-- https://valentjn.github.io/ltex/advanced-usage.html#magic-comments
@@ -25,4 +26,4 @@ return {
 			checkFrequency = "save",
 		},
 	},
-}
+})

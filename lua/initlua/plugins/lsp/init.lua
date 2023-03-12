@@ -2,6 +2,7 @@ local function lsp_setup()
 	-- Start LSP setup
 	require("initlua.plugins.lsp.cmp").setup()
 	require("initlua.plugins.lsp.servers").configure()
+	require("initlua.plugins.lsp.ltex-ls")
 
 	-- Setup neovim workspace
 	require("neodev").setup()
@@ -58,6 +59,9 @@ return {
 
 			-- Neovim cmp
 			{ "folke/neodev.nvim" },
+
+			-- ltex-ls
+			{ "vigoux/ltex-ls.nvim" },
 		},
 		config = lsp_setup,
 	},

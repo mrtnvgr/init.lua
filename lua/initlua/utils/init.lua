@@ -53,7 +53,6 @@ local modules = {
 	-- Required for updating
 	"git",
 	"mason",
-	"lazy",
 	"updater",
 
 	-- Miscellaneous

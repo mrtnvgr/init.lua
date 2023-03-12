@@ -9,7 +9,8 @@ function initlua.update()
 	end
 
 	-- Update Lazy
-	initlua.lazy.update()
+	require("lazy.core.plugin").load()
+	require("lazy").sync({ wait = true })
 
 	-- Update Tree-sitter
 	-- ()() is necessary here

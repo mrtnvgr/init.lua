@@ -2,8 +2,8 @@ function initlua.update()
 	-- Update Self
 	local pull_status, _ = initlua.git.pull(false)
 	if pull_status then
-		initlua.notify("Repository pulled successfully")
-		initlua.reload()
+		initlua.notify("Repository pulled successfully! Please restart neovim and run update again.")
+		return
 	else
 		initlua.err("Unable to pull repository")
 	end

@@ -42,7 +42,6 @@ git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 | Neovim command                  | Lua command                    | Keymap        | Description                           |
 | ------------------------------- | ------------------------------ | ------------- | ------------------------------------- |
 | `InitluaUpdate`                 | `initlua.update()`             | `<leader>au`  | update everything                     |
-| `InitluaReload`                 | `initlua.reload()`             | -             | reload `initlua.core.*` lua files     |
 | `InitluaToggleFormatting`       | `initlua.format.toggle()`      | -             | toggle null-ls formatting             |
 | `InitluaGitPull`                | `initlua.git.pull()`           | -             | pull updates from init.lua repository |
 | `InitluaUpdateAllMasonPackages` | `initlua.mason.update_all()`   | -             | update all Mason packages             |

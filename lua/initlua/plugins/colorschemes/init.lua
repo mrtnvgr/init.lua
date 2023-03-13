@@ -28,6 +28,7 @@ M.colorschemes = {
 		name = "nightfox",
 		names = { "nightfox", "duskfox", "nordfox", "terafox", "carbonfox" },
 	},
+	-- TODO: solarized
 }
 
 local function load(type, colorscheme)

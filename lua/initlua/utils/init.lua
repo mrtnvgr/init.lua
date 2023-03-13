@@ -48,7 +48,6 @@ end
 local modules = {
 	-- General utils
 	"cache",
-	"reload",
 
 	-- Required for updating
 	"git",

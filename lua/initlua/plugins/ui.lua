@@ -12,16 +12,26 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		event = "VimEnter",
-		opts = {
-			input = { border = initlua.settings.ui.border },
-			select = {
-				nui = {
-					border = { style = initlua.settings.ui.border },
+		config = function()
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "DressingSelect",
+				callback = function(args)
+					vim.keymap.set("n", "<Tab>", "j", { buffer = args.buf })
+				end,
+			})
+
+			require("dressing").setup({
+				input = { border = initlua.settings.ui.border },
+				select = {
+					nui = {
+						border = { style = initlua.settings.ui.border },
+					},
+					builtin = {
+						border = initlua.settings.ui.border,
+					},
 				},
-				builtin = {
-					border = initlua.settings.ui.border,
-				},
-			},
-		},
+			})
+		end
 	},
 }

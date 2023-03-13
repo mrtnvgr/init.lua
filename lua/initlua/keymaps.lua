@@ -63,5 +63,5 @@ map("v", "p", '"_dP')
 map("v", "P", '"_dp')
 
 -- Initlua's keymaps
-map("n", "<leader>au", initlua.update)
+map("n", "<leader>au", initlua.updater.update)
 map("n", "<leader>asc", initlua.select_colorscheme)

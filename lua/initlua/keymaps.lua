@@ -63,5 +63,7 @@ map("v", "p", '"_dP')
 map("v", "P", '"_dp')
 
 -- Initlua's keymaps
+-- TODO: move to respective util modules
 map("n", "<leader>au", initlua.updater.update)
 map("n", "<leader>asc", initlua.select_colorscheme)
+map("n", "<leader>atf", initlua.format.toggle)

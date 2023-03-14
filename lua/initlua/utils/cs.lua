@@ -43,14 +43,14 @@ function initlua.cs.set_existing_colorscheme()
 		command = "cs",
 		args = { "set", initlua.settings.colorscheme },
 		on_exit = function(j, code)
-			if code == 1 then
-				initlua.err("Failed to set cs colorscheme!")
+			local result = table.concat(j:result(), "\n")
+			if result:match("Unknown colorscheme: ") then
+				vim.schedule(initlua.cs.sync_using_terminal_colors)
+				return
 			end
 
-			local result = table.concat(j:result(), "\n")
-			if result:match("error: Unknown colorscheme: ") then
-				initlua.cs.sync_using_terminal_colors()
-				return
+			if code == 1 then
+				initlua.err("Failed to set cs colorscheme!")
 			end
 		end,
 	}):start()

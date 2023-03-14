@@ -13,11 +13,11 @@ return {
 		"stevearc/dressing.nvim",
 		event = "VimEnter",
 		config = function()
-
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = "DressingSelect",
 				callback = function(args)
 					vim.keymap.set("n", "<Tab>", "j", { buffer = args.buf })
+					vim.keymap.set("n", "<S-Tab>", "k", { buffer = args.buf })
 				end,
 			})
 
@@ -32,6 +32,6 @@ return {
 					},
 				},
 			})
-		end
+		end,
 	},
 }

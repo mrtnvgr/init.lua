@@ -32,9 +32,3 @@ function initlua.mason.update_all()
 		end)
 	end
 end
-
-vim.api.nvim_create_user_command(
-	"InitluaUpdateAllMasonPackages",
-	initlua.mason.update_all,
-	{ desc = "Update all Mason packages" }
-)

@@ -35,8 +35,6 @@ end
 
 vim.api.nvim_create_user_command("InitluaUpdate", initlua.updater.update, { desc = "Update Everything" })
 
--- TODO: InitluaUpdateAllMasonPackages -> InitluaUpdatePackages
-
 vim.api.nvim_create_autocmd("User", {
 	desc = "Perform plugin updates",
 	pattern = "VeryLazy",

@@ -56,5 +56,7 @@ return {
 	-- Expose checkDocument from ltex client
 	-- Credits: https://github.com/vigoux/ltex-ls.nvim
 	-- TODO(?): This should be removed on v2.x migration
+	-- TODO: handle "add to dictionary", make dictionary system
+	-- TODO: handle "range_code_action": add range to dictionary
 	on_init = on_init,
 }

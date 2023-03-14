@@ -13,32 +13,47 @@ function initlua.cs.sync()
 		return
 	end
 
-	if initlua.cs.check_colorscheme() then
-		return
-	end
+	local Job = require("plenary.job")
+	Job:new({
+		command = "cs",
+		args = { "status" },
+		on_exit = function(j, code)
+			if code == 1 then
+				initlua.err("Failed to get cs status!")
+				return
+			end
 
-	if not initlua.cs.sync_using_existing_colorscheme() then
-		initlua.cs.sync_using_terminal_colors()
-	end
+			local result = table.concat(j:result(), "\n")
+			local data = vim.json.decode(result)
+			if not data then
+				initlua.err("Failed to parse cs status!")
+				return
+			end
+
+			if data.colorscheme.name ~= initlua.settings.colorscheme then
+				initlua.cs.set_existing_colorscheme()
+			end
+		end,
+	}):start()
 end
 
-function initlua.cs.check_colorscheme()
-	local file = io.popen("cs status", "r")
-	file:flush()
-	local data = vim.json.decode(file:read("*a"))
-	file:close()
-	if data.colorscheme.name == initlua.settings.colorscheme then
-		return true
-	end
-end
+function initlua.cs.set_existing_colorscheme()
+	local Job = require("plenary.job")
+	Job:new({
+		command = "cs",
+		args = { "set", initlua.settings.colorscheme },
+		on_exit = function(j, code)
+			if code == 1 then
+				initlua.err("Failed to set cs colorscheme!")
+			end
 
-function initlua.cs.sync_using_existing_colorscheme()
-	local file = io.popen("cs set " .. initlua.settings.colorscheme, "r")
-	file:flush()
-	if not file:read("*a"):match("error: Unknown colorscheme: ") then
-		return true
-	end
-	file:close()
+			local result = table.concat(j:result(), "\n")
+			if result:match("error: Unknown colorscheme: ") then
+				initlua.cs.sync_using_terminal_colors()
+				return
+			end
+		end,
+	}):start()
 end
 
 function initlua.cs.sync_using_terminal_colors()
@@ -81,8 +96,14 @@ function initlua.cs.sync_using_terminal_colors()
 
 	file:close()
 
-	io.popen("cs import " .. file_path, "r")
-	initlua.cs.sync_using_existing_colorscheme()
-
-	return true
+	local Job = require("plenary.job")
+	Job:new({
+		command = "cs",
+		args = { "import", file_path },
+		on_exit = function(_, code)
+			if code == 0 then
+				initlua.cs.set_existing_colorscheme()
+			end
+		end,
+	}):start()
 end

@@ -1,6 +1,6 @@
 function initlua.select_colorscheme()
-	package.loaded["initlua.plugins.colorschemes"] = nil
-	local colorscheme_tables = require("initlua.plugins.colorschemes")
+	package.loaded["initlua.plugins.colorschemes.list"] = nil
+	local colorscheme_tables = require("initlua.plugins.colorschemes.list")
 	local colorschemes = {}
 	for _, value in ipairs(colorscheme_tables) do
 		for _, colorscheme in ipairs(value.names) do

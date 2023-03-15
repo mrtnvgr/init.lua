@@ -45,7 +45,7 @@ git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 | `InitluaToggleFormatting`  | `initlua.format.toggle()`      | `<leader>atf` | toggle null-ls formatting |
 | `InitluaSelectColorscheme` | `initlua.select_colorscheme()` | `<leader>asc` | pick a colorscheme        |
 
-**All other commands are internal and are not recommended for use.**
+**All other Lua commands are internal and are not recommended for use.**
 
 ## Acknowledgements
 

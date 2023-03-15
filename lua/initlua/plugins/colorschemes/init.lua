@@ -1,7 +1,5 @@
 local M = {}
 
-math.randomseed(os.clock() * os.clock())
-
 M.colorschemes = require("initlua.plugins.colorschemes.list")
 
 local function load(type, colorscheme)
@@ -66,14 +64,7 @@ if not found then
 
 	-- Set a random colorscheme if saved one wasn't found
 	if not ok then
-		local colorschemes = vim.tbl_map(function(tbl)
-			return tbl.names
-		end, M.colorschemes)
-		colorschemes = vim.tbl_flatten(colorschemes)
-
-		local colorscheme = colorschemes[math.random(#colorschemes)]
-
-		initlua.settings.colorscheme = colorscheme
+		initlua.colorscheme.set_random(false)
 		M.prioritize_colorscheme(initlua.settings.colorscheme)
 	end
 end

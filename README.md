@@ -39,11 +39,12 @@ git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 
 ## Commands
 
-| Neovim command             | Lua command                    | Keymap        | Description               |
-| -------------------------- | ------------------------------ | ------------- | ------------------------- |
-| `InitluaUpdate`            | `initlua.updater.update()`     | `<leader>au`  | update everything         |
-| `InitluaToggleFormatting`  | `initlua.format.toggle()`      | `<leader>atf` | toggle null-ls formatting |
-| `InitluaSelectColorscheme` | `initlua.select_colorscheme()` | `<leader>asc` | pick a colorscheme        |
+| Neovim command             | Lua command                        | Keymap        | Description               |
+| -------------------------- | ---------------------------------- | ------------- | ------------------------- |
+| `InitluaUpdate`            | `initlua.updater.update()`         | `<leader>au`  | update everything         |
+| `InitluaToggleFormatting`  | `initlua.format.toggle()`          | `<leader>atf` | toggle null-ls formatting |
+| `InitluaSelectColorscheme` | `initlua.colorscheme.select()`     | `<leader>asc` | pick a colorscheme        |
+| `InitluaRandomColorscheme` | `initlua.colorscheme.set_random()` | `<leader>arc` | set a random colorscheme  |
 
 **All other Lua commands are internal and are not recommended for use.**
 

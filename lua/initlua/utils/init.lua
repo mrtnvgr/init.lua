@@ -53,7 +53,7 @@ local modules = {
 
 	-- Miscellaneous
 	"format",
-	"colorscheme-picker",
+	"colorscheme",
 	"cs",
 }
 

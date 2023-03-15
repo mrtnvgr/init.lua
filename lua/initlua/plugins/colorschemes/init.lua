@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	group = "Initlua",
 	callback = function()
 		M.load_settings("post", vim.fn.expand("<amatch>"))
+		initlua.cs.sync()
 	end,
 })
 

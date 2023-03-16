@@ -21,7 +21,6 @@ require("lazy").setup({
 			initlua.settings.colorscheme,
 			"habamax",
 		},
-		checker = { enabled = false },
-		change_detection = { enabled = false, notify = false },
 	},
+	change_detection = { enabled = false, notify = false },
 })

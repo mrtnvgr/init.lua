@@ -27,9 +27,38 @@ function initlua.cache.load()
 end
 
 function initlua.cache.save()
+	local Job = require("plenary.job")
+	local encoded = vim.json.encode(initlua.settings)
+	if not encoded then
+		return
+	end
+
+	local get_result = function(j, code)
+		if code == 1 then
+			return
+		end
+		encoded = table.concat(j:result(), "\n")
+	end
+
+	-- Prettify json using external tools
+	if vim.fn.executable("jq") then
+		Job:new({
+			command = "jq",
+			args = { "." },
+			writer = encoded,
+			on_exit = get_result,
+		}):sync()
+	elseif vim.fn.has("python") then
+		Job:new({
+			command = "python",
+			args = { "-m", "json.tool" },
+			writer = encoded,
+			on_exit = get_result,
+		}):sync()
+	end
+
 	local file = io.open(initlua.cache.path, "w")
 	if file then
-		local encoded = vim.json.encode(initlua.settings)
 		file:write(encoded)
 		file:close()
 	else

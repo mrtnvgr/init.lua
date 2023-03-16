@@ -22,7 +22,6 @@ end
 function initlua.cache.load()
 	local cache = initlua.cache.get()
 	if cache ~= initlua.settings then
-		-- TODO: this does not work if user changed file manually
 		initlua.settings = vim.tbl_deep_extend("force", initlua.settings, cache)
 	end
 end

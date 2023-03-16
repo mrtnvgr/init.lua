@@ -1,9 +1,9 @@
-vim.g.mapleader = " "
-
 local modules = {
 	"autocmds",
 	"options",
 	"keymaps",
 }
 
-initlua.load_modules("initlua.core", modules)
+for _, module in pairs(modules) do
+	require("initlua.core." .. module)
+end

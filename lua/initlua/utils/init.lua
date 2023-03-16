@@ -33,12 +33,6 @@ function initlua.err(msg)
 	initlua.notify(msg, "error")
 end
 
-function initlua.load_modules(path, modules)
-	for _, module in ipairs(modules) do
-		require(path .. "." .. module)
-	end
-end
-
 function initlua.set_sign(name, text, ...)
 	return vim.fn.sign_define(name, { texthl = name, text = text, ... })
 end
@@ -57,4 +51,6 @@ local modules = {
 	"cs",
 }
 
-initlua.load_modules("initlua.utils", modules)
+for _, module in ipairs(modules) do
+	require("initlua.utils" .. "." .. module)
+end

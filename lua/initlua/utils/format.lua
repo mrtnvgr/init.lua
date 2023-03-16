@@ -15,3 +15,4 @@ vim.api.nvim_create_user_command(
 	initlua.format.toggle,
 	{ desc = "Toggle null-ls formatting" }
 )
+vim.keymap.set("n", "<leader>atf", initlua.format.toggle)

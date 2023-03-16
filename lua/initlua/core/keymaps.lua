@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local map = vim.keymap.set
 
 local defaults = { noremap = true, silent = true }
@@ -23,8 +25,3 @@ map("", "<right>", "<nop>")
 -- Don't copy when pasting over selection
 map("v", "p", '"_dP')
 map("v", "P", '"_dp')
-
--- Initlua's keymaps
--- TODO: move to respective util modules
-map("n", "<leader>au", initlua.updater.update)
-map("n", "<leader>atf", initlua.format.toggle)

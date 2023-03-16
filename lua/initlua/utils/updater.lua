@@ -7,30 +7,24 @@ function initlua.updater.update()
 		command = "git",
 		args = { "pull", "--ff-only" },
 		cwd = initlua.install_path,
-		on_start = function()
-			initlua.notify("Updating...")
-		end,
 		on_stderr = function(_, err)
 			if err:match("^From") then
-				initlua.notify("Repository pulled successfully! Please restart Neovim")
-				initlua.settings._internals.update_available = true
+				initlua.notify("Repository pulled successfully!")
+			elseif err:match("^error: please commit or stash them.$") then
+				initlua.notify(
+					"Failed to pull repository!\nPlease stash or commit your local changes.",
+					vim.log.levels.WARN
+				)
+			else
+				return
 			end
+
+			initlua.settings._internals.update_available = true
 		end,
 		on_exit = function()
-			initlua.notify("Finished updating!")
+			initlua.notify("Update completed, please restart Neovim")
 		end,
 	}):start()
-end
-
-function initlua.updater.update_plugins()
-	initlua.notify("Updating plugins...")
-
-	-- Update Tree-sitter
-	-- ()() is necessary here
-	require("nvim-treesitter.install").update()()
-
-	-- Update LSP
-	initlua.mason.update_all()
 end
 
 vim.api.nvim_create_user_command("InitluaUpdate", initlua.updater.update, { desc = "Update Everything" })
@@ -41,9 +35,19 @@ vim.api.nvim_create_autocmd("User", {
 	once = true,
 	callback = function()
 		if initlua.settings._internals.update_available then
-			initlua.updater.update_plugins()
+			require("lazy").sync()
 			initlua.settings._internals.update_available = false
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("User", {
+	desc = "Perform treesitter and Mason updates",
+	pattern = "LazySync",
+	callback = function()
+		require("nvim-treesitter.install").update()()
+		initlua.mason.update_all()
+	end,
+})
+
 vim.keymap.set("n", "<leader>au", initlua.updater.update)

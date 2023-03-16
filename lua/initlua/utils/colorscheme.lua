@@ -15,6 +15,7 @@ function initlua.colorscheme.select()
 	vim.ui.select(colorschemes, { prompt = "Select colorscheme" }, function(selected)
 		if selected ~= nil then
 			vim.cmd.colorscheme(selected)
+			vim.schedule(initlua.cs.sync)
 		end
 	end)
 end
@@ -23,9 +24,9 @@ function initlua.colorscheme.set_random(cache_only)
 	math.randomseed(os.clock() * os.clock())
 
 	package.loaded["initlua.plugins.colorschemes.list"] = nil
-	colorschemes = require("initlua.plugins.colorschemes.list")
+	local colorschemes = require("initlua.plugins.colorschemes.list")
 
-	local colorschemes = vim.tbl_map(function(tbl)
+	colorschemes = vim.tbl_map(function(tbl)
 		return tbl.names
 	end, colorschemes)
 	colorschemes = vim.tbl_flatten(colorschemes)
@@ -36,6 +37,7 @@ function initlua.colorscheme.set_random(cache_only)
 
 	if not cache_only then
 		pcall(vim.cmd.colorscheme, initlua.settings.colorscheme)
+		vim.schedule(initlua.cs.sync)
 	end
 end
 

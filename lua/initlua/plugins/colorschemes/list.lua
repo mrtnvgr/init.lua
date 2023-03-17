@@ -6,6 +6,7 @@
 -- Every rule in colorscheme setup should be commented.
 -- ================================================================================
 -- CR01: Background of floating windows must be transparent
+--		 (NormalFloat, NotifyBackground, WhichKeyFloat, Pmenu)
 -- CR02: Background of SignColumn must be linked to Normal background
 -- CR03: Line numbers must be colored using only 1 monochrome color
 -- CR04: Matching characted must be highlighted in completion menu
@@ -21,6 +22,7 @@ return {
 	{ "rose-pine/neovim", name = "rose-pine", names = { "rose-pine" } },
 	{ "Everblush/nvim", name = "everblush", names = { "everblush" } },
 	{ "rebelot/kanagawa.nvim", name = "kanagawa", names = { "kanagawa-dragon", "kanagawa-wave" } },
+	{ "gbprod/nord.nvim", name = "nord", names = { "nord" } },
 
 	{
 		"EdenEast/nightfox.nvim",

@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("User", {
 	desc = "Perform treesitter and Mason updates",
 	pattern = "LazySync",
+	once = true,
 	callback = function()
 		require("nvim-treesitter.install").update()()
 		initlua.mason.update_all()

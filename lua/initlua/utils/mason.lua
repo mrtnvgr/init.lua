@@ -12,7 +12,7 @@ function initlua.mason.update_all()
 	local no_pkgs = running == 0
 
 	if no_pkgs then
-		initlua.notify("Mason: all packages are up-to-date")
+		initlua.notify("Mason: No updates available")
 		return
 	end
 
@@ -21,13 +21,16 @@ function initlua.mason.update_all()
 			if update_available then
 				initlua.notify(("Mason: Updating %s"):format(pkg.name))
 				pkg:install():on("closed", function()
-					-- TODO: edit the previous notify (disable timeout)
-					-- Maybe show the progress
 					initlua.notify(("Mason: Updated %s"):format(pkg.name))
 				end)
 			else
 				-- TODO: use "mini" for these notifications
 				-- initlua.notify(("Mason: No updates for %s"):format(pkg.name))
+			end
+
+			running = running - 1
+			if running == 0 then
+				initlua.notify("Mason: Update Complete")
 			end
 		end)
 	end

@@ -15,6 +15,8 @@ function initlua.updater.update()
 					"Failed to pull repository!\nPlease stash or commit your local changes.",
 					vim.log.levels.WARN
 				)
+			elseif err:match("^fatal: unable to access") then
+				initlua.err("Failed to pull repository!\nNo internet connection.")
 			else
 				return
 			end

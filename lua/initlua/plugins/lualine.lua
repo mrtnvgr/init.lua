@@ -7,8 +7,11 @@ return {
 	config = function()
 		local lualine = require("lualine")
 
-		local custom_auto = require("lualine.themes.auto")
-		custom_auto.normal.c.bg = "NONE"
+		local theme = require("lualine.themes.auto")
+		local modes = { "normal", "insert", "visual", "replace", "command", "inactive" }
+		for _, mode in ipairs(modes) do
+			theme[mode].c.bg = "NONE"
+		end
 
 		lualine.setup({
 			options = {

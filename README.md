@@ -15,12 +15,12 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 
 ## Requirements
 
-- Neovim >= **0.8.0** (**nightly**)
+- Neovim **nightly**
 - Git
-- Python 3 and `pynvim` pip package
-- NodeJS and `neovim`, `tree-sitter-cli` npm packages
-- _Any_ C compiler
-- `openjdk` (for aarch64 systems) <!-- ltex-ls -->
+- Python 3, `pynvim` pip package
+- NodeJS, `neovim` and `tree-sitter-cli` npm packages
+- C compiler (`gcc`)
+- `openjdk` _(for **aarch64** systems)_ <!-- ltex-ls -->
 - [Nerd Font](https://nerdfonts.com/)
 - [jq](https://stedolan.github.io/jq/) _(**optional**)_
 

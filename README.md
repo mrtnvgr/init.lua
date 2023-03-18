@@ -11,6 +11,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 - Ships with 12+ different colorschemes, keeping them [consistent](lua/initlua/plugins/colorschemes/list.lua).
 - Provides support for Python, Lua, and Rust, straight out of the box.
   <!-- TODO: - Provides complete dev environments for Python, Lua and Rust, straight out of the box. -->
+- _**and more...**_
 
 ## Requirements
 

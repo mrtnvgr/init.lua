@@ -13,6 +13,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 - Python 3 and `pynvim` pip package
 - NodeJS and `neovim`, `tree-sitter-cli` npm packages
 - _Any_ C compiler
+- `openjdk` (for aarch64 systems) <!-- ltex-ls -->
 - [Nerd Font](https://nerdfonts.com/)
 
 ## Installation (Linux)

@@ -21,6 +21,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 - _Any_ C compiler
 - `openjdk` (for aarch64 systems) <!-- ltex-ls -->
 - [Nerd Font](https://nerdfonts.com/)
+- [jq](https://stedolan.github.io/jq/) _(optional)_
 
 ## Installation (Linux)
 

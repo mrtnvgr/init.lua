@@ -6,6 +6,10 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 
 **Init.lua** is a modern featureful Neovim distribution.
 
+## Features
+
+- Ships with 12+ different colorschemes, keeping them [consistent](lua/initlua/plugins/colorschemes/list.lua).
+
 ## Requirements
 
 - Neovim >= **0.8.0** (**nightly**)

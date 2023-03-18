@@ -44,7 +44,7 @@ function initlua.cache.save()
 	if vim.fn.executable("jq") then
 		Job:new({
 			command = "jq",
-			args = { "." },
+			args = { "-S", "." },
 			writer = encoded,
 			on_exit = get_result,
 		}):sync()

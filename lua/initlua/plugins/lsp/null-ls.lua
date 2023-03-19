@@ -18,6 +18,7 @@ function M.setup()
 	local null_opts = lsp.build_options("null-ls", {})
 
 	null_ls.setup({
+		border = initlua.settings.ui.border,
 		on_attach = function(client, bufnr)
 			null_opts.on_attach(client, bufnr)
 			require("lsp-format").on_attach(client)

@@ -1,3 +1,26 @@
+local function lualine_setup()
+	local lualine = require("lualine")
+
+	local custom_auto = require("lualine.themes.auto")
+	custom_auto.normal.c.bg = "NONE"
+
+	lualine.setup({
+		options = {
+			theme = custom_auto,
+			section_separators = "",
+			component_separators = "",
+		},
+		refresh = {
+			statusline = vim.opt.updatetime,
+		},
+	})
+
+	lualine.hide({
+		place = { "tabline" },
+		unhide = false,
+	})
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
@@ -5,25 +28,17 @@ return {
 		"kyazdani42/nvim-web-devicons",
 	},
 	config = function()
-		local lualine = require("lualine")
+		lualine_setup()
 
-		local custom_auto = require("lualine.themes.auto")
-		custom_auto.normal.c.bg = "NONE"
-
-		lualine.setup({
-			options = {
-				theme = custom_auto,
-				section_separators = "",
-				component_separators = "",
-			},
-			refresh = {
-				statusline = vim.opt.updatetime,
-			},
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			group = "lualine",
+			callback = lualine_setup,
 		})
 
-		lualine.hide({
-			place = { "tabline" },
-			unhide = false,
+		vim.api.nvim_create_autocmd("OptionSet", {
+			group = "lualine",
+			pattern = "background",
+			callback = lualine_setup,
 		})
 	end,
 }

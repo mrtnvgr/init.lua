@@ -19,6 +19,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 - Git
 - Python 3, `pynvim` pip package
 - NodeJS, `neovim` and `tree-sitter-cli` npm packages
+- Rust, `rust-clippy` rustup component.
 - C compiler (`gcc`)
 - `openjdk` _(for **aarch64** systems)_ <!-- ltex-ls -->
 - [Nerd Font](https://nerdfonts.com/)

@@ -8,6 +8,8 @@ Job:new({
 	on_exit = function(_, code)
 		if code == 0 then
 			check_command = "clippy"
+		else
+			initlua.notify("rust-clippy is not installed", vim.log.levels.WARN)
 		end
 	end,
 }):sync()

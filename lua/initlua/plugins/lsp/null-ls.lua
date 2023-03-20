@@ -4,12 +4,11 @@ M.ensure_installed = {
 	"stylua", -- Lua formatting
 	"black", -- Python formatting
 	"isort", -- Python import formatting
-	"autopep8", -- Python auto pep8 fixing
 	"jsonlint", -- JSON Linting
 	"actionlint", -- Github Actions YAML Linting
 	"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting
 	"rustfmt", -- Rust formatter
-	"pyflakes",
+	-- TODO: "pyflakes",
 }
 
 function M.setup()

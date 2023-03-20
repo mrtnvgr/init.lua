@@ -11,5 +11,6 @@ require("nord").setup({
 		highlights.NotifyBackground.bg = "NONE"
 		highlights.WhichKeyFloat.bg = "NONE"
 		highlights.Pmenu.bg = "NONE"
+		highlights.PmenuSbar.bg = "NONE"
 	end,
 })

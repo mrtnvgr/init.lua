@@ -2,6 +2,8 @@ require("nightfox").setup({
 	groups = {
 		all = {
 			-- CR01
+			Pmenu = { bg = "" },
+			PmenuSBar = { bg = "" },
 			NormalFloat = { bg = "NONE" },
 
 			-- CR06

@@ -3,6 +3,7 @@ require("catppuccin").setup({
 		return {
 			-- CR01
 			Pmenu = { bg = "" },
+			PmenuSbar = { bg = "" },
 			NormalFloat = { bg = "" },
 		}
 	end,

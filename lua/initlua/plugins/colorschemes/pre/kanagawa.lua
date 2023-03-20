@@ -10,6 +10,7 @@ require("kanagawa").setup({
 					},
 					pmenu = {
 						bg = "NONE",
+						bg_sbar = "NONE",
 					},
 
 					-- CR02
@@ -25,8 +26,10 @@ require("kanagawa").setup({
 		return {
 			-- CR06
 			MsgArea = { link = "Normal" },
+
+			-- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
 			PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-			PmenuSbar = { bg = theme.ui.bg_m1 },
+			-- PmenuSbar = { bg = theme.ui.bg_m1 },
 			PmenuThumb = { bg = theme.ui.bg_p2 },
 		}
 	end,

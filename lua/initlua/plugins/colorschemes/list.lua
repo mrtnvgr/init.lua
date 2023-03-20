@@ -6,7 +6,7 @@
 -- Every rule in colorscheme setup should be commented.
 -- ================================================================================
 -- CR01: Background of floating windows must be transparent
---		 (NormalFloat, NotifyBackground, WhichKeyFloat, Pmenu)
+--		 (NormalFloat, NotifyBackground, WhichKeyFloat, Pmenu, PmenuSbar)
 -- CR02: Background of SignColumn must be linked to Normal background
 -- CR03: Line numbers must be colored using only 1 monochrome color
 -- CR04: Matching characted must be highlighted in completion menu

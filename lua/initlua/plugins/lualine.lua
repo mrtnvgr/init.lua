@@ -1,12 +1,9 @@
 local function lualine_setup()
 	local lualine = require("lualine")
 
-	local custom_auto = require("lualine.themes.auto")
-	custom_auto.normal.c.bg = "NONE"
-
 	lualine.setup({
 		options = {
-			theme = custom_auto,
+			theme = "better-auto",
 			section_separators = "",
 			component_separators = "",
 		},

@@ -9,6 +9,7 @@ M.ensure_installed = {
 	"actionlint", -- Github Actions YAML Linting
 	"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting
 	"rustfmt", -- Rust formatter
+	"pyflakes",
 }
 
 function M.setup()

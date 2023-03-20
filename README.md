@@ -30,6 +30,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 ```console
 pip install pynvim
 npm install --global neovim tree-sitter-cli
+rustup component add clippy
 git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 ```
 

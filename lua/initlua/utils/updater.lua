@@ -20,11 +20,12 @@ function initlua.updater.update()
 			else
 				return
 			end
-
-			initlua.settings._internals.update_available = true
 		end,
-		on_exit = function()
-			initlua.notify("Update completed, please restart Neovim")
+		on_exit = function(_, code)
+			if code ~= 1 then
+				initlua.settings._internals.update_available = true
+				initlua.notify("Update completed, please restart Neovim")
+			end
 		end,
 	}):start()
 end

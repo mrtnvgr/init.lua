@@ -1,5 +1,18 @@
 initlua.configure = {}
 
+initlua.settings = {
+	ui = {
+		border = "single",
+	},
+	colorscheme = "rose-pine",
+	optional_plugins = {
+		wakatime = false,
+	},
+	_internals = {
+		update_available = false,
+	},
+}
+
 function initlua.configure.optional_plugins(async_select)
 	for plugin, _ in pairs(initlua.settings.optional_plugins) do
 		local prompt = "Do you want to enable " .. plugin .. "?"

@@ -1,3 +1,13 @@
+local function get_disabled_servers()
+	local disabled_servers = {}
+	for _, language in pairs(initlua.settings.languages) do
+		if not language.lsp_enabled then
+			disabled_servers = vim.tbl_extend("error", disabled_servers, language.lsp_servers)
+		end
+	end
+	return disabled_servers
+end
+
 local function lsp_setup()
 	-- Start LSP setup
 	require("initlua.plugins.lsp.cmp").setup()
@@ -5,6 +15,9 @@ local function lsp_setup()
 
 	-- Setup neovim workspace
 	require("neodev").setup()
+
+	local disabled_servers = get_disabled_servers()
+	require("initlua.plugins.lsp.core").skip_server_setup(disabled_servers)
 
 	-- Finish LSP setup
 	require("initlua.plugins.lsp.core").setup()

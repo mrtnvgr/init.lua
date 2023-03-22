@@ -6,12 +6,12 @@ local settings = {
 	},
 	languages = {
 		python = {
-			lsp_enabled = true,
+			lsp_enabled = false,
 			lsp_servers = {
 				"pyright",
 			},
 
-			null_ls_enabled = true,
+			null_ls_enabled = false,
 			null_ls_servers = {
 				"black", -- Formatter
 				"isort", -- Import formatter

@@ -36,8 +36,8 @@ end
 
 local modules = {
 	-- General utils
-	"configure",
 	"cache",
+	"configure",
 
 	-- Required for updating
 	"mason",

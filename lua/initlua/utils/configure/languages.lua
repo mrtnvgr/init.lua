@@ -1,3 +1,36 @@
+local settings_languages = {
+	python = {
+		lsp_enabled = false,
+		lsp_servers = {
+			"pyright",
+		},
+
+		null_ls_enabled = false,
+		null_ls_servers = {
+			"black", -- Formatter
+			"isort", -- Import formatter
+			-- TODO: pyflakes
+		},
+	},
+	rust = {
+		lsp_enabled = false,
+		lsp_servers = {
+			"rust-analyzer",
+		},
+
+		null_ls_enabled = false,
+		null_ls_servers = {
+			"rustfmt", -- Formatter
+		},
+	},
+}
+
+if not initlua.settings.languages then
+	initlua.settings.languages = {}
+end
+
+initlua.settings.languages = vim.tbl_deep_extend("keep", initlua.settings.languages, settings_languages)
+
 function initlua.configure.languages(async_select)
 	while true do
 		local languages = vim.tbl_keys(initlua.settings.languages)

@@ -1,3 +1,11 @@
+local settings = {
+	optional_plugins = {
+		wakatime = false,
+	},
+}
+
+initlua.settings = vim.tbl_deep_extend("force", settings, initlua.settings)
+
 function initlua.configure.optional_plugins(async_select)
 	while true do
 		local plugins = vim.tbl_keys(initlua.settings.optional_plugins)

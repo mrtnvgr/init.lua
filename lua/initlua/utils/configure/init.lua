@@ -1,28 +1,5 @@
 initlua.configure = {}
 
-local settings = {
-	optional_plugins = {
-		wakatime = false,
-	},
-	languages = {
-		python = {
-			lsp_enabled = false,
-			lsp_servers = {
-				"pyright",
-			},
-
-			null_ls_enabled = false,
-			null_ls_servers = {
-				"black", -- Formatter
-				"isort", -- Import formatter
-				-- TODO: pyflakes
-			},
-		},
-	},
-}
-
-vim.tbl_deep_extend("error", initlua.settings, settings)
-
 -- TODO: BACK, async_select as local vars here
 
 for _, module in ipairs({ "optional_plugins", "languages" }) do

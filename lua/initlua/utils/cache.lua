@@ -41,7 +41,7 @@ function initlua.cache.save()
 	end
 
 	-- Prettify json using external tools
-	if vim.fn.executable("jq") then
+	if vim.fn.executable("jq") == 1 then
 		Job:new({
 			command = "jq",
 			args = { "-S", "." },

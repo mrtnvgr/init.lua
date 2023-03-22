@@ -8,6 +8,21 @@ initlua.settings = {
 	optional_plugins = {
 		wakatime = false,
 	},
+	languages = {
+		python = {
+			lsp_enabled = true,
+			lsp_servers = {
+				"pyright",
+			},
+
+			null_ls_enabled = true,
+			null_ls_servers = {
+				"black", -- Formatter
+				"isort", -- Import formatter
+				-- TODO: pyflakes
+			},
+		},
+	},
 	_internals = {
 		update_available = false,
 	},
@@ -16,12 +31,35 @@ initlua.settings = {
 function initlua.configure.optional_plugins(async_select)
 	for plugin, _ in pairs(initlua.settings.optional_plugins) do
 		local prompt = "Do you want to enable " .. plugin .. "?"
-		async_select({ "Yes", "No" }, { prompt = prompt }, function(choice)
-			if choice == "Yes" then
-				initlua.settings.optional_plugins[plugin] = true
-				initlua.notify(plugin .. " will be enabled after restart")
-			end
-		end)
+		local choice = async_select({ "Yes", "No" }, { prompt = prompt })
+		if choice == "Yes" then
+			initlua.settings.optional_plugins[plugin] = true
+			initlua.notify(plugin .. " will be enabled after restart")
+		end
+	end
+end
+
+function initlua.configure.languages(async_select)
+	for name, _ in pairs(initlua.settings.languages) do
+		local prompt = name .. ": integration type"
+		local choices = { "All", "LSP", "Null-ls" }
+		local type = async_select(choices, { prompt = prompt })
+
+		prompt = name .. ": " .. type .. " integration state"
+		local state = async_select({ "Enable", "Disable" }, { prompt = prompt })
+
+		local boolean = state == "Enable"
+		local pretty_name = (state == "Enable" and "enabled") or "disabled"
+
+		if type == "LSP" or type == "All" then
+			initlua.settings.languages[name].lsp_enabled = boolean
+			initlua.notify(name .. ": LSP integration was " .. pretty_name)
+		end
+
+		if type == "Formatters, linters, etc..." or type == "All" then
+			initlua.settings.languages[name].null_ls_enabled = boolean
+			initlua.notify(name .. ": null-ls integration was " .. pretty_name)
+		end
 	end
 end
 
@@ -31,9 +69,14 @@ function initlua.configure.all()
 		vim.ui.select(items, opts, callback)
 	end, 3)
 
-	async.run(function()
+	async.void(function()
 		initlua.configure.optional_plugins(async_select)
-	end, function() end)
+
+		local ok = async_select({ "Yes", "No" }, { prompt = "Do you want to setup language integrations?" })
+		if ok then
+			initlua.configure.languages(async_select)
+		end
+	end)()
 end
 
 vim.api.nvim_create_autocmd("User", {

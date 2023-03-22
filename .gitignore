@@ -1,5 +1,9 @@
 spell/*.spl
 spell/*.sug
 spell/*.add
+
 lazy-lock.json
+
 cache.json
+
+.luarc.json

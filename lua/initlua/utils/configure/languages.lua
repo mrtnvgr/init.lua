@@ -23,6 +23,17 @@ local settings_languages = {
 			"rustfmt", -- Formatter
 		},
 	},
+	lua = {
+		lsp_enabled = false,
+		lsp_servers = {
+			"lua_ls",
+		},
+
+		null_ls_enabled = false,
+		null_ls_servers = {
+			"stylua", -- Formatter
+		},
+	},
 }
 
 if not initlua.settings.languages then

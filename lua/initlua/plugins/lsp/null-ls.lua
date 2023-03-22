@@ -2,7 +2,6 @@ local M = {}
 
 -- TODO: migrate
 -- M.ensure_installed = {
--- 	"stylua", -- Lua formatting
 -- 	"jsonlint", -- JSON Linting
 -- 	"actionlint", -- Github Actions YAML Linting
 -- 	"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting

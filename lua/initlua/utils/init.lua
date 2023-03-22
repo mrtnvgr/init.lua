@@ -1,6 +1,16 @@
 _G.initlua = {}
 local stdpath = vim.fn.stdpath
 
+initlua.settings = {
+	ui = {
+		border = "single",
+	},
+	colorscheme = "rose-pine",
+	_internals = {
+		update_available = false,
+	},
+}
+
 initlua.install_path = stdpath("config")
 
 function initlua.notify(msg, type, opts)

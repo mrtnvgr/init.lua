@@ -1,10 +1,6 @@
 initlua.configure = {}
 
-initlua.settings = {
-	ui = {
-		border = "single",
-	},
-	colorscheme = "rose-pine",
+local settings = {
 	optional_plugins = {
 		wakatime = false,
 	},
@@ -23,13 +19,11 @@ initlua.settings = {
 			},
 		},
 	},
-	_internals = {
-		update_available = false,
-	},
 }
 
+vim.tbl_deep_extend("error", initlua.settings, settings)
+
 -- TODO: BACK, async_select as local vars here
--- TODO: move initlua.settings to init.lua; use tbl_deep_extend to add "languages", "optional_plugins" keys
 
 for _, module in ipairs({ "optional_plugins", "languages" }) do
 	require("initlua.utils.configure." .. module)

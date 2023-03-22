@@ -24,5 +24,5 @@ function initlua.configure.optional_plugin(async_select, plugin)
 	local pretty_value = (choice == "Enable" and "enabled") or "disabled"
 
 	initlua.settings.optional_plugins[plugin] = boolean
-	initlua.notify(plugin .. "will be " .. pretty_value .. " after restart")
+	initlua.notify(plugin .. " will be " .. pretty_value .. " after restart")
 end

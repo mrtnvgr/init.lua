@@ -48,7 +48,7 @@ function initlua.cache.save()
 			writer = encoded,
 			on_exit = get_result,
 		}):sync()
-	elseif vim.fn.has("python") then
+	elseif vim.fn.has("python") == 1 then
 		Job:new({
 			command = "python",
 			args = { "-m", "json.tool" },

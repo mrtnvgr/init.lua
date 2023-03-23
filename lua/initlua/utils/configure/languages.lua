@@ -1,5 +1,5 @@
 local settings_languages = {
-	python = {
+	Python = {
 		lsp_enabled = false,
 		lsp_servers = {
 			"pyright",
@@ -12,7 +12,7 @@ local settings_languages = {
 			-- TODO: pyflakes
 		},
 	},
-	rust = {
+	Rust = {
 		lsp_enabled = false,
 		lsp_servers = {
 			"rust-analyzer",
@@ -23,7 +23,7 @@ local settings_languages = {
 			"rustfmt", -- Formatter
 		},
 	},
-	lua = {
+	Lua = {
 		lsp_enabled = false,
 		lsp_servers = {
 			"lua_ls",

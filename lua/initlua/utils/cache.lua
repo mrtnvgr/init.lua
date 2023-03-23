@@ -28,7 +28,15 @@ end
 
 function initlua.cache.save()
 	local Job = require("plenary.job")
-	local encoded = vim.json.encode(initlua.settings)
+
+	local settings = initlua.settings
+
+	for language, value in pairs(settings.languages) do
+		settings.languages[language].lsp_servers = nil
+		settings.languages[language].null_ls_servers = nil
+	end
+
+	local encoded = vim.json.encode(settings)
 	if not encoded then
 		return
 	end

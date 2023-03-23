@@ -6,24 +6,24 @@ local settings = {
 
 initlua.settings = vim.tbl_deep_extend("force", settings, initlua.settings)
 
-function initlua.configure.optional_plugins(async_select)
+function initlua.configure.optional_plugins()
 	while true do
 		local plugins = vim.tbl_keys(initlua.settings.optional_plugins)
 		table.sort(plugins)
 		table.insert(plugins, "<-")
 
-		local plugin = async_select(plugins, { prompt = "Optional plugins" })
+		local plugin = vim.ui.async.select(plugins, { prompt = "Optional plugins" })
 		if not plugin or plugin == "<-" then
 			return
 		end
 
-		initlua.configure.optional_plugin(async_select, plugin)
+		initlua.configure.optional_plugin(plugin)
 	end
 end
 
-function initlua.configure.optional_plugin(async_select, plugin)
+function initlua.configure.optional_plugin(plugin)
 	local prompt = "Optional plugin: " .. plugin
-	local choice = async_select({ "Enable", "Disable", "<-" }, { prompt = prompt })
+	local choice = vim.ui.async.select({ "Enable", "Disable", "<-" }, { prompt = prompt })
 	if not choice or choice == "<-" then
 		return
 	end

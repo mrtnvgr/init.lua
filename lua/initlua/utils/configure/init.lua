@@ -1,14 +1,15 @@
 initlua.configure = {}
 
--- TODO: BACK, async_select as local vars here
-
 for _, module in ipairs({ "optional_plugins", "languages" }) do
 	require("initlua.utils.configure." .. module)
 end
 
 function initlua.configure.all()
 	local async = require("plenary.async")
-	local async_select = async.wrap(function(items, opts, callback)
+
+	-- REFACTOR: this
+	vim.ui.async = {}
+	vim.ui.async.select = async.wrap(function(items, opts, callback)
 		vim.ui.select(items, opts, callback)
 	end, 3)
 
@@ -16,12 +17,12 @@ function initlua.configure.all()
 		local looping_here = true
 		while looping_here do
 			local opts = { "Optional Plugins", "Language Integrations", "Quit" }
-			local choice = async_select(opts, { prompt = "Select options" })
+			local choice = vim.ui.async.select(opts, { prompt = "Select options" })
 
 			if choice == "Optional Plugins" then
-				initlua.configure.optional_plugins(async_select)
+				initlua.configure.optional_plugins()
 			elseif choice == "Language Integrations" then
-				initlua.configure.languages(async_select)
+				initlua.configure.languages()
 			else
 				looping_here = false
 			end

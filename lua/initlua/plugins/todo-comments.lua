@@ -10,6 +10,9 @@ return {
 					keyword = "fg",
 					after = "",
 				},
+				keywords = {
+					TODO = { alt = { "REFACTOR", "REFCT" } },
+				},
 			}
 
 			if vim.fn.executable("rg") == 0 then

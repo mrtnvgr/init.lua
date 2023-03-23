@@ -44,24 +44,36 @@ initlua.settings.languages = vim.tbl_deep_extend("keep", initlua.settings.langua
 
 function initlua.configure.languages()
 	while true do
-		-- local languages = vim.tbl_keys(initlua.settings.languages)
-
-		local languages = {}
-		for key, value in pairs(initlua.settings.languages) do
-			local all_enabled = value.lsp_enabled and value.null_ls_enabled
-			local only_lsp_enabled = value.lsp_enabled and not value.null_ls_enabled
-			local only_null_ls_enabled = value.null_ls_enabled and not value.lsp_enabled
-			local pretty_state = (all_enabled and "All")
-				or (only_lsp_enabled and "Only LSP")
-				or (only_null_ls_enabled and "Only null-ls")
-
-			table.insert(languages, key .. " (" .. pretty_state .. ")")
-		end
+		local languages = vim.tbl_keys(initlua.settings.languages)
 
 		table.sort(languages)
 		table.insert(languages, "<-")
 
-		local language = vim.ui.async.select(languages, { prompt = "Languages" })
+		local language = vim.ui.async.select(languages, {
+			prompt = "Languages",
+			format_item = function(language)
+				local value = initlua.settings.languages[language]
+				if not value then
+					return language
+				end
+
+				local all_enabled = value.lsp_enabled and value.null_ls_enabled
+				local only_lsp_enabled = value.lsp_enabled and not value.null_ls_enabled
+				local only_null_ls_enabled = value.null_ls_enabled and not value.lsp_enabled
+
+				local pretty_state = "Disabled"
+				if only_lsp_enabled then
+					pretty_state = "Only LSP"
+                elseif only_null_ls_enabled then
+					pretty_state = "Only Null-ls"
+                elseif all_enabled then
+					pretty_state = "All"
+				end
+
+				return language .. " (" .. pretty_state .. ")"
+			end,
+		})
+
 		if not language or language == "<-" then
 			return
 		end

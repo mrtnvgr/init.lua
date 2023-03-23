@@ -44,7 +44,20 @@ initlua.settings.languages = vim.tbl_deep_extend("keep", initlua.settings.langua
 
 function initlua.configure.languages()
 	while true do
-		local languages = vim.tbl_keys(initlua.settings.languages)
+		-- local languages = vim.tbl_keys(initlua.settings.languages)
+
+		local languages = {}
+		for key, value in pairs(initlua.settings.languages) do
+			local all_enabled = value.lsp_enabled and value.null_ls_enabled
+			local only_lsp_enabled = value.lsp_enabled and not value.null_ls_enabled
+			local only_null_ls_enabled = value.null_ls_enabled and not value.lsp_enabled
+			local pretty_state = (all_enabled and "All")
+				or (only_lsp_enabled and "Only LSP")
+				or (only_null_ls_enabled and "Only null-ls")
+
+			table.insert(languages, key .. " (" .. pretty_state .. ")")
+		end
+
 		table.sort(languages)
 		table.insert(languages, "<-")
 

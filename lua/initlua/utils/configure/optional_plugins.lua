@@ -10,8 +10,8 @@ function initlua.configure.optional_plugins()
 	while true do
 		local plugins = {}
 		for key, value in pairs(initlua.settings.optional_plugins) do
-			local pretty_value = (value and "enabled") or "disabled"
-			table.insert(plugins, key .. " (" .. pretty_value .. ")")
+			local pretty_state = (value and "enabled") or "disabled"
+			table.insert(plugins, key .. " (" .. pretty_state .. ")")
 		end
 
 		table.sort(plugins)

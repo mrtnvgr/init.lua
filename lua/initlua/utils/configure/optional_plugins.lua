@@ -8,7 +8,12 @@ initlua.settings = vim.tbl_deep_extend("force", settings, initlua.settings)
 
 function initlua.configure.optional_plugins()
 	while true do
-		local plugins = vim.tbl_keys(initlua.settings.optional_plugins)
+		local plugins = {}
+		for key, value in pairs(initlua.settings.optional_plugins) do
+			local pretty_value = (value and "enabled") or "disabled"
+			table.insert(plugins, key .. " (" .. pretty_value .. ")")
+		end
+
 		table.sort(plugins)
 		table.insert(plugins, "<-")
 

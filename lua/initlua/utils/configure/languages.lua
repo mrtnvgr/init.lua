@@ -68,13 +68,21 @@ function initlua.configure.language(language)
 	local boolean = state == "Enable"
 	local pretty_name = (state == "Enable" and "enabled") or "disabled"
 
+	local changes = false
+
 	if type == "LSP" or type == "All" then
 		initlua.settings.languages[language].lsp_enabled = boolean
 		initlua.notify(language .. ": LSP integration was " .. pretty_name)
+		changes = true
 	end
 
 	if type == "Formatters, linters, etc..." or type == "All" then
 		initlua.settings.languages[language].null_ls_enabled = boolean
 		initlua.notify(language .. ": null-ls integration was " .. pretty_name)
+		changes = true
+	end
+
+	if changes then
+		initlua.notify("New settings will be applied after restart")
 	end
 end

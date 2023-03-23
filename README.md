@@ -41,7 +41,7 @@ git clone https://github.com/mrtnvgr/init.lua ~/.config/nvim
 powershell -ExecutionPolicy RemoteSigned -Command "irm get.scoop.sh | iex"
 scoop install git
 scoop bucket add versions
-scoop install gcc neovim-nightly nodejs python
+scoop install gcc neovim-nightly nodejs python rust
 scoop bucker add nerd-fonts
 scoop install CascadiaCode-NF-Mono # change your cmd font to this
 python -m pip install pynvim

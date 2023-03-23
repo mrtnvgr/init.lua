@@ -8,16 +8,24 @@ initlua.settings = vim.tbl_deep_extend("force", settings, initlua.settings)
 
 function initlua.configure.optional_plugins()
 	while true do
-		local plugins = {}
-		for key, value in pairs(initlua.settings.optional_plugins) do
-			local pretty_state = (value and "enabled") or "disabled"
-			table.insert(plugins, key .. " (" .. pretty_state .. ")")
-		end
+		local plugins = vim.tbl_keys(initlua.settings.optional_plugins)
 
 		table.sort(plugins)
 		table.insert(plugins, "<-")
 
-		local plugin = vim.ui.async.select(plugins, { prompt = "Optional plugins" })
+		local plugin = vim.ui.async.select(plugins, {
+			prompt = "Optional plugins",
+			format_item = function(plugin)
+				local value = initlua.settings.optional_plugins[plugin]
+				if value == nil then
+					return plugin
+				end
+
+				local pretty_state = (value and "enabled") or "disabled"
+				return plugin .. " (" .. pretty_state .. ")"
+			end,
+		})
+
 		if not plugin or plugin == "<-" then
 			return
 		end

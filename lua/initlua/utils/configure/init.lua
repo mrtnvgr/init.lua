@@ -17,6 +17,8 @@ function initlua.configure.all()
 		local looping_here = true
 		while looping_here do
 			local opts = { "Optional Plugins", "Language Integrations", "Quit" }
+			table.sort(opts)
+
 			local choice = vim.ui.async.select(opts, { prompt = "Select options" })
 
 			if choice == "Optional Plugins" then

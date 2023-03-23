@@ -32,6 +32,7 @@ local settings_languages = {
 		null_ls_enabled = false,
 		null_ls_servers = {
 			"stylua", -- Formatter
+			"selene", -- Linter
 		},
 	},
 }
@@ -64,9 +65,9 @@ function initlua.configure.languages()
 				local pretty_state = "Disabled"
 				if only_lsp_enabled then
 					pretty_state = "Only LSP"
-                elseif only_null_ls_enabled then
+				elseif only_null_ls_enabled then
 					pretty_state = "Only Null-ls"
-                elseif all_enabled then
+				elseif all_enabled then
 					pretty_state = "All"
 				end
 

@@ -14,6 +14,8 @@ function initlua.pandoc.compile(output_extension, output_format, args, success_c
 	local input = vim.fn.expand("%:p")
 	local output = vim.fn.expand("%:p:r") .. "." .. output_extension
 
+	local errs = {}
+
 	Job:new({
 		command = "pandoc",
 		args = { input, "-t", output_format, "-o", output, unpack(args) },
@@ -26,6 +28,7 @@ function initlua.pandoc.compile(output_extension, output_format, args, success_c
 		on_exit = function(_, code)
 			if code ~= 0 then
 				initlua.err("pandoc: failed to compile this document using " .. output_format .. ".")
+				initlua.err(table.concat(errs, "\n"))
 				return
 			end
 
@@ -34,7 +37,7 @@ function initlua.pandoc.compile(output_extension, output_format, args, success_c
 		end,
 
 		on_stderr = function(_, err)
-			initlua.err("pandoc: " .. err)
+			table.insert(errs, err)
 		end,
 	}):start()
 end

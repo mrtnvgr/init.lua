@@ -25,3 +25,13 @@ map("", "<right>", "<nop>")
 -- Don't copy when pasting over selection
 map("v", "p", '"_dP')
 map("v", "P", '"_dp')
+
+-- Show word count
+map("n", "wc", function()
+	local info = vim.fn.wordcount()
+	initlua.notify("Total words: " .. info.words)
+end)
+map("v", "wc", function()
+	local info = vim.fn.wordcount()
+	initlua.notify("Words in visual selection: " .. info.visual_words)
+end)

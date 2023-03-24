@@ -52,13 +52,14 @@ git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 
 ## Commands
 
-| Neovim command             | Lua command                        | Keymap        | Description               |
-| -------------------------- | ---------------------------------- | ------------- | ------------------------- |
-| `InitluaUpdate`            | `initlua.updater.update()`         | `<leader>au`  | update everything         |
-| `InitluaConfigure`         | `initlua.configure.all()`          | `<leader>ac`  | configure self            |
-| `InitluaToggleFormatting`  | `initlua.format.toggle()`          | `<leader>atf` | toggle null-ls formatting |
-| `InitluaSelectColorscheme` | `initlua.colorscheme.select()`     | `<leader>asc` | pick a colorscheme        |
-| `InitluaRandomColorscheme` | `initlua.colorscheme.set_random()` | `<leader>arc` | set a random colorscheme  |
+| Neovim command             | Lua command                        | Keymap        | Description                  |
+| -------------------------- | ---------------------------------- | ------------- | ---------------------------- |
+| `InitluaUpdate`            | `initlua.updater.update()`         | `<leader>au`  | update everything            |
+| `InitluaConfigure`         | `initlua.configure.all()`          | `<leader>ac`  | configure self               |
+| `InitluaToggleFormatting`  | `initlua.format.toggle()`          | `<leader>atf` | toggle null-ls formatting    |
+| `InitluaSelectColorscheme` | `initlua.colorscheme.select()`     | `<leader>asc` | pick a colorscheme           |
+| `InitluaRandomColorscheme` | `initlua.colorscheme.set_random()` | `<leader>arc` | set a random colorscheme     |
+| `InitluaPandoc`            | `initlua.pandoc.menu()`            | `<leader>apd` | open pandoc integration menu |
 
 **All other Lua commands are internal and are not recommended for use.**
 

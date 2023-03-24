@@ -47,6 +47,7 @@ local modules = {
 	"format",
 	"colorscheme",
 	"cs",
+	"pandoc",
 }
 
 for _, module in ipairs(modules) do

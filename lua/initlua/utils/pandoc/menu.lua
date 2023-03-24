@@ -3,7 +3,7 @@ function initlua.pandoc.menu()
 
 	vim.ui.select(opts, { prompt = "Select document type:" }, function(choice)
 		if choice == "Presentation (PDF)" then
-			initlua.pandoc.compile_pdf_presentation()
+			initlua.pandoc.compile_presentation_as_pdf()
 		end
 	end)
 end

@@ -5,15 +5,7 @@ for _, module in ipairs({ "optional_plugins", "languages" }) do
 end
 
 function initlua.configure.all()
-	local async = require("plenary.async")
-
-	-- REFACTOR: this
-	vim.ui.async = {}
-	vim.ui.async.select = async.wrap(function(items, opts, callback)
-		vim.ui.select(items, opts, callback)
-	end, 3)
-
-	async.void(function()
+	require("plenary.async").void(function()
 		local looping_here = true
 		while looping_here do
 			local opts = { "Optional Plugins", "Language Integrations" }

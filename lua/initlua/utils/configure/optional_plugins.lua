@@ -20,8 +20,8 @@ function initlua.configure.optional_plugins()
 				return plugin
 			end
 
-			local pretty_state = (value and "enabled") or "disabled"
-			return plugin .. " (" .. pretty_state .. ")"
+			local pretty_state = (value and "x") or " "
+			return "[" .. pretty_state .. "] " .. plugin
 		end,
 	}, function(plugin)
 		if not plugin then
@@ -31,24 +31,8 @@ function initlua.configure.optional_plugins()
 			return
 		end
 
-		initlua.configure.optional_plugin(plugin)
-	end)
-end
-
-function initlua.configure.optional_plugin(choice)
-	local prompt = "Optional plugin: " .. choice
-	vim.ui.select({ "Enable", "Disable", "<-" }, { prompt = prompt }, function(choice)
-		if not choice then
-			return
-		elseif choice == "<-" then
-			vim.schedule(initlua.configure.optional_plugins)
-			return
-		end
-
-		local boolean = choice == "Enable"
-		local pretty_value = (choice == "Enable" and "enabled") or "disabled"
-
-		initlua.settings.optional_plugins[choice] = boolean
-		initlua.notify(choice .. " will be " .. pretty_value .. " after restart")
+		local boolean = not initlua.settings.optional_plugins[plugin]
+		initlua.settings.optional_plugins[plugin] = boolean
+		vim.schedule(initlua.configure.optional_plugins)
 	end)
 end

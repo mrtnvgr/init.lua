@@ -1,5 +1,4 @@
-_G.initlua = {}
-local stdpath = vim.fn.stdpath
+initlua = {}
 
 initlua.settings = {
 	ui = {
@@ -11,7 +10,7 @@ initlua.settings = {
 	},
 }
 
-initlua.install_path = stdpath("config")
+initlua.install_path = vim.fn.stdpath("config")
 
 function initlua.notify(msg, type, opts)
 	local default_opts = { title = "Init.lua" }

@@ -5,24 +5,19 @@ for _, module in ipairs({ "optional_plugins", "languages" }) do
 end
 
 function initlua.configure.all()
-	require("plenary.async").void(function()
-		local looping_here = true
-		while looping_here do
-			local opts = { "Optional Plugins", "Language Integrations" }
-			table.sort(opts)
-			table.insert(opts, "Quit")
+	local opts = { "Optional Plugins", "Language Integrations", "Colorschemes" }
+	table.sort(opts)
+	table.insert(opts, "Quit")
 
-			local choice = vim.ui.async.select(opts, { prompt = "Select options" })
-
-			if choice == "Optional Plugins" then
-				initlua.configure.optional_plugins()
-			elseif choice == "Language Integrations" then
-				initlua.configure.languages()
-			else
-				looping_here = false
-			end
+	vim.ui.select(opts, { prompt = "Select options" }, function(choice)
+		if choice == "Optional Plugins" then
+			initlua.configure.optional_plugins()
+		elseif choice == "Language Integrations" then
+			initlua.configure.languages()
+		elseif choice == "Colorschemes" then
+			initlua.colorscheme.select()
 		end
-	end)()
+	end)
 end
 
 vim.api.nvim_create_autocmd("User", {

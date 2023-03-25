@@ -24,6 +24,7 @@ return {
 			require("dressing").setup({
 				input = { border = initlua.settings.ui.border },
 				select = {
+					backend = { "telescope", "nui" },
 					nui = {
 						border = { style = initlua.settings.ui.border },
 					},

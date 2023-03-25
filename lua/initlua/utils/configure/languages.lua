@@ -63,14 +63,14 @@ function initlua.configure.languages()
 
 			local pretty_state = "Disabled"
 			if only_lsp_enabled then
-				pretty_state = "Only LSP"
+				pretty_state = "LSP"
 			elseif only_null_ls_enabled then
-				pretty_state = "Only Null-ls"
+				pretty_state = "Null-ls"
 			elseif all_enabled then
 				pretty_state = "All"
 			end
 
-			return language .. " (" .. pretty_state .. ")"
+			return "[" .. pretty_state .. "] " .. language
 		end,
 	}, function(language)
 		if not language then

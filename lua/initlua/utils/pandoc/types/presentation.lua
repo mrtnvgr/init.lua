@@ -17,3 +17,7 @@ function initlua.pandoc.compile_presentation_as_pdf()
 		Job:new({ command = "zathura", args = { output } }):start()
 	end)
 end
+
+initlua.pandoc.types.Presentation = {
+	pdf = initlua.pandoc.compile_presentation_as_pdf,
+}

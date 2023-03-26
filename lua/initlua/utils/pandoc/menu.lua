@@ -1,9 +1,11 @@
 function initlua.pandoc.menu()
-	local opts = { "Presentation (PDF)" }
+	local opts = { "Presentation (PDF)", "Essay (ODT)" }
 
 	vim.ui.select(opts, { prompt = "Select document type:" }, function(choice)
 		if choice == "Presentation (PDF)" then
 			initlua.pandoc.compile_presentation_as_pdf()
+		elseif choice == "Essay (ODT)" then
+			initlua.pandoc.compile_essay_as_odt()
 		end
 	end)
 end

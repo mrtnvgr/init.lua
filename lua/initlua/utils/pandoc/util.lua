@@ -1,4 +1,4 @@
-initlua.pandoc.supported_extensions = { "md" }
+initlua.pandoc.supported_extensions = { "md", "html" }
 
 function initlua.pandoc.is_installed()
 	return vim.fn.executable("pandoc") == 1

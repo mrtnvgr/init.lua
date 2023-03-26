@@ -21,7 +21,7 @@ function initlua.notify(msg, type, opts)
 	end
 
 	vim.schedule(function()
-		vim.notify(msg, type, opts)
+		require("notify")(msg, type, opts)
 	end)
 end
 

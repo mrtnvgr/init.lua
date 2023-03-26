@@ -25,9 +25,20 @@ vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",
 	once = true,
 	callback = function()
-		if io.open(initlua.cache.path, "r") == nil then
-			initlua.configure.all()
+		if io.open(initlua.cache.path, "r") ~= nil then
+			return
 		end
+
+		initlua.notify(
+			"Welcome to **Init.lua**!\n\nUse `:InitluaConfigure` to open a configuration.",
+			vim.log.levels.INFO,
+			{
+				on_open = function(win)
+					local buf = vim.api.nvim_win_get_buf(win)
+					vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
+				end,
+			}
+		)
 	end,
 })
 

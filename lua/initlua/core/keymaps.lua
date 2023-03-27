@@ -27,11 +27,11 @@ map("v", "p", '"_dP')
 map("v", "P", '"_dp')
 
 -- Show word count
-map("n", "wc", function()
+map("n", "<leader>wc", function()
 	local info = vim.fn.wordcount()
 	initlua.notify("Total words: " .. info.words)
 end)
-map("v", "wc", function()
+map("v", "<leader>wc", function()
 	local info = vim.fn.wordcount()
 	initlua.notify("Words in visual selection: " .. info.visual_words)
 end)

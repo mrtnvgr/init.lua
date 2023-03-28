@@ -17,6 +17,7 @@ return {
 				window = {
 					border = initlua.settings.ui.border,
 				},
+				ignore_missing = true,
 			})
 
 			wk.register({

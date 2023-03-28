@@ -16,10 +16,12 @@ function initlua.pandoc.compile(output_extension, output_format, args, success_c
 
 	local errs = {}
 
+	local cwd = require("plenary.path"):new(initlua.install_path, "pandoc")
+
 	Job:new({
 		command = "pandoc",
 		args = { input, "-t", output_format, "-o", output, unpack(args) },
-		-- TODO: (custom_themes) cwd = initlua.install_path .. sep .. "pandoc",
+		cwd = cwd.filename,
 
 		on_start = function()
 			initlua.notify("pandoc: compiling...")

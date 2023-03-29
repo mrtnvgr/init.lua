@@ -49,7 +49,10 @@ return {
 					},
 				},
 			},
-			{ "williamboman/mason-lspconfig.nvim" },
+			{
+				"williamboman/mason-lspconfig.nvim",
+				dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
+			},
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },

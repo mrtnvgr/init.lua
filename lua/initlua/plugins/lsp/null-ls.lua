@@ -23,10 +23,9 @@ function M.setup()
 	})
 
 	local ensure_installed = {}
-
 	for _, language in pairs(initlua.settings.languages) do
 		if language.null_ls_enabled then
-			ensure_installed = vim.tbl_extend("force", ensure_installed, language.null_ls_servers)
+			ensure_installed = vim.list_extend(ensure_installed, language.null_ls_servers)
 		end
 	end
 

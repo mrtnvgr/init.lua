@@ -2,7 +2,7 @@ local function get_disabled_servers()
 	local disabled_servers = {}
 	for _, language in pairs(initlua.settings.languages) do
 		if not language.lsp_enabled then
-			disabled_servers = vim.tbl_extend("force", disabled_servers, language.lsp_servers)
+			disabled_servers = vim.list_extend(disabled_servers, language.lsp_servers)
 		end
 	end
 	return disabled_servers

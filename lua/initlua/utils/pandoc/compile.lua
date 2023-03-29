@@ -20,7 +20,7 @@ function initlua.pandoc.compile(output_extension, output_format, args, success_c
 
 	Job:new({
 		command = "pandoc",
-		args = { input, "-t", output_format, "-o", output, unpack(args) },
+		args = { input, "--resource-path=" .. vim.fn.expand("%:p:h"), "-t", output_format, "-o", output, unpack(args) },
 		cwd = cwd.filename,
 
 		on_start = function()

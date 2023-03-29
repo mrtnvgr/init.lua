@@ -27,7 +27,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 - `openjdk` _(for **aarch64** systems)_ <!-- ltex-ls -->
 - [Nerd Font](https://nerdfonts.com/)
 - [jq](https://stedolan.github.io/jq/) _(**optional**)_
-- [Pandoc](https://pandoc.org), [tex-live](https://tug.org/texlive/), biblatex _(**optional**)_
+- [Pandoc](https://pandoc.org), [tex-live](https://tug.org/texlive/) _(**optional**)_
 
 ## Installation (Linux)
 

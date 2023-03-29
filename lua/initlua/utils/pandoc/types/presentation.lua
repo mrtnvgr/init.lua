@@ -1,7 +1,7 @@
 initlua.settings.pandoc.pdf = {
 	themes = { "metropolis", "SimplePlus" },
 }
-table.sort(initlua.settings.pandoc.pdf)
+table.sort(initlua.settings.pandoc.pdf.themes)
 
 function initlua.pandoc.compile_presentation(extension, theme, callback)
 	initlua.pandoc.compile(extension, "beamer", {

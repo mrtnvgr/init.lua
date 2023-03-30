@@ -9,7 +9,7 @@ _**WARNING: Heavily under development! There are some bugs and stuff that needs 
 ## Features
 
 - 12+ different yet [consistent](lua/initlua/plugins/colorschemes/list.lua) colorschemes.
-- Support for Python, Lua, and Rust, straight out of the box.
+- Support for Python, Lua, Rust, and LaTeX, straight out of the box.
 - Comfy and convenient settings menu.
 - [Pandoc](https://pandoc.org/) integration.
 - _**and more...**_

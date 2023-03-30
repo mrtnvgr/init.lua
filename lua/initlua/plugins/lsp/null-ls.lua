@@ -34,7 +34,20 @@ function M.setup()
 		automatic_installation = true,
 		automatic_setup = true,
 	})
-	require("mason-null-ls").setup_handlers()
+	require("mason-null-ls").setup_handlers({
+		function(source_name, methods)
+			require("mason-null-ls.automatic_setup")(source_name, methods)
+		end,
+		latexindent = function(source_name, methods)
+			if vim.fn.has("win32") == 0 then
+				null_ls.register(null_ls.builtins.formatting.latexindent.with({
+					args = { "-g", "/dev/null", "-" },
+				}))
+			else
+				require("mason-null-ls.automatic_setup")(source_name, methods)
+			end
+		end,
+	})
 
 	for _, language in pairs(initlua.settings.languages) do
 		if not language.null_ls_enabled then

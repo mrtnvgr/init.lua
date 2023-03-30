@@ -35,6 +35,15 @@ local settings_languages = {
 			"selene", -- Linter
 		},
 	},
+	LaTeX = {
+		lsp_enabled = false,
+		lsp_servers = { "ltex" },
+
+		null_ls_enabled = false,
+		null_ls_servers = {
+			"latexindent", -- Formatter
+		},
+	},
 }
 
 if not initlua.settings.languages then

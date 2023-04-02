@@ -14,7 +14,9 @@ function M.configure()
 	local servers = M.get_servers()
 	local lsp = require("initlua.plugins.lsp.core")
 
-	lsp.ensure_installed(servers)
+	lsp.ensure_installed(vim.tbl_map(function(server)
+		return server:gsub("-", "_")
+	end, servers))
 
 	for _, server in ipairs(servers) do
 		local ok, settings = pcall(require, "initlua.plugins.lsp.servers." .. server)

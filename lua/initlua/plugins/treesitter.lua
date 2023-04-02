@@ -20,6 +20,7 @@ return {
 					"regex",
 					"markdown",
 					"markdown_inline",
+					"gitcommit",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)

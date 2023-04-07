@@ -8,6 +8,7 @@ require("gruvbox").setup({
 		-- CR01
 		Pmenu = { bg = "" },
 		PmenuSbar = { bg = "" },
+		NormalFloat = { bg = "" },
 
 		-- CR02
 		SignColumn = { link = "Normal" },

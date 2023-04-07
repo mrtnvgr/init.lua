@@ -35,3 +35,6 @@ map("v", "<leader>wc", function()
 	local info = vim.fn.wordcount()
 	initlua.notify("Words in visual selection: " .. info.visual_words)
 end)
+
+-- Neotree
+map("", "<leader>e", "<CMD>:Neotree reveal toggle<CR>")

@@ -133,6 +133,8 @@ function initlua.configure.language(language)
 			if changes then
 				initlua.notify("New settings will be applied after restart")
 			end
+
+			initlua.configure.languages()
 		end)
 	end)
 end

@@ -32,7 +32,6 @@ function M.setup()
 	require("mason-null-ls").setup({
 		ensure_installed = ensure_installed,
 		automatic_installation = true,
-		automatic_setup = true,
 		handlers = {
 			latexindent = function(source_name, methods)
 				if vim.fn.has("win32") == 0 then
@@ -40,7 +39,7 @@ function M.setup()
 						args = { "-g", "/dev/null", "-" },
 					}))
 				else
-					require("mason-null-ls.automatic_setup")(source_name, methods)
+					require("mason-null-ls").default_setup(source_name, methods)
 				end
 			end,
 		},

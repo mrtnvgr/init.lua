@@ -37,7 +37,7 @@ local settings_languages = {
 	},
 	LaTeX = {
 		lsp_enabled = false,
-		lsp_servers = { "ltex" },
+		lsp_servers = { "ltex", "texlab" },
 
 		null_ls_enabled = false,
 		null_ls_servers = {

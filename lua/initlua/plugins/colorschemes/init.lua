@@ -1,5 +1,6 @@
 local M = {}
 
+package.loaded["initlua.plugins.colorschemes.list"] = nil
 M.colorschemes = require("initlua.plugins.colorschemes.list")
 
 local function load(type, colorscheme)

@@ -31,7 +31,7 @@ function initlua.cache.save()
 
 	local settings = initlua.settings
 
-	for language, value in pairs(settings.languages) do
+	for language, _ in pairs(settings.languages) do
 		settings.languages[language].lsp_servers = nil
 		settings.languages[language].null_ls_servers = nil
 	end

@@ -10,11 +10,7 @@ local function lualine_setup()
 		refresh = {
 			statusline = vim.opt.updatetime,
 		},
-	})
-
-	lualine.hide({
-		place = { "tabline" },
-		unhide = false,
+		extensions = { "lazy", "neo-tree", "trouble" },
 	})
 end
 

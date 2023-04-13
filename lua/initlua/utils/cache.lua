@@ -88,4 +88,17 @@ vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	desc = "Reload settings from cache on every cache file save",
+	callback = function()
+		local saved_file_path = vim.fn.expand("<amatch>")
+		local cache_path = require("plenary.path"):new(initlua.install_path, "cache.json")
+		local cache_real_path = vim.loop.fs_realpath(cache_path.filename)
+
+		if saved_file_path == cache_real_path then
+			initlua.cache.load()
+		end
+	end,
+})
+
 initlua.cache.load()

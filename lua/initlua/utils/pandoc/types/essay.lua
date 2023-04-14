@@ -1,18 +1,5 @@
-local function run(name, output)
-	if vim.fn.executable(name) == 0 then
-		return
-	end
-
-	local Job = require("plenary.job")
-	Job:new({ command = name, args = { output } }):start()
-end
-
-local function libreoffice_callback(output)
-	run("libreoffice", output)
-end
-
 function initlua.pandoc.compile_essay_to_office_document(extension)
-	initlua.pandoc.compile(extension, extension, {}, libreoffice_callback)
+	initlua.pandoc.compile(extension, extension, {}, initlua.pandoc.callbacks.office)
 end
 
 function initlua.pandoc.compile_essay_as_odt()

@@ -23,6 +23,7 @@ return {
 	{ "Everblush/nvim", name = "everblush", names = { "everblush" } },
 	{ "rebelot/kanagawa.nvim", name = "kanagawa", names = { "kanagawa-dragon", "kanagawa-wave" } },
 	{ "gbprod/nord.nvim", name = "nord", names = { "nord" } },
+	{ "Yazeed1s/minimal.nvim", name = "minimal", names = { "minimal-base16", "minimal" } },
 
 	{
 		"EdenEast/nightfox.nvim",

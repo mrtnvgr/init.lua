@@ -26,6 +26,7 @@
 - [Nerd Font](https://nerdfonts.com/)
 - [jq](https://stedolan.github.io/jq/) _(**optional**)_
 - [Pandoc](https://pandoc.org), [tex-live](https://tug.org/texlive/) _(**optional**)_
+- [pdf2pptx](https://pypi.org/project/pdf2pptx/) _(**optional**)_
 
 ## Installation (Linux)
 

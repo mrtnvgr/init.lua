@@ -9,12 +9,12 @@ function initlua.pandoc.compile_presentation(extension, theme, callback)
 end
 
 function initlua.pandoc.compile_presentation_as_pdf()
-	local themes = initlua.settings.pandoc.pdf.themes
+	local themes = vim.deepcopy(initlua.settings.pandoc.pdf.themes)
 	table.sort(themes)
 	table.insert(themes, "<-")
 
 	vim.ui.select(themes, { prompt = "Select theme" }, function(theme)
-		if not theme then
+		if not theme or theme == "<-" then
 			return
 		end
 
@@ -25,14 +25,15 @@ function initlua.pandoc.compile_presentation_as_pdf()
 end
 
 function initlua.pandoc.compile_presentation_as_pptx()
-	local themes = initlua.settings.pandoc.pdf.themes
+	local themes = vim.deepcopy(initlua.settings.pandoc.pdf.themes)
 	table.sort(themes)
 	table.insert(themes, "<-")
 
 	vim.ui.select(themes, { prompt = "Select theme" }, function(theme)
-		if not theme then
+		if not theme or theme == "<-" then
 			return
 		end
+
 		if vim.fn.executable("pdf2pptx") == 0 then
 			initlua.err("pandoc: pdf2pptx is not installed on your system")
 			return

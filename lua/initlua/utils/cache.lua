@@ -15,7 +15,13 @@ function initlua.cache.get()
 	else
 		local cache = file:read("*a")
 		file:close()
-		return vim.json.decode(cache)
+
+		local ok, json = pcall(vim.json.decode, cache)
+		if not ok then
+			return initlua.settings
+		end
+
+		return json
 	end
 end
 

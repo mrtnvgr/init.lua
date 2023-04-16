@@ -1,6 +1,15 @@
+local function get_wakatime_default_state()
+	-- TODO: windows support
+	if vim.fn.has("win32") == 0 then
+		local config_path = os.getenv("HOME") .. initlua.path.sep .. ".wakatime.cfg"
+		return initlua.path.exists(config_path)
+	end
+	return false
+end
+
 local settings = {
 	optional_plugins = {
-		wakatime = false,
+		wakatime = get_wakatime_default_state(),
 	},
 }
 

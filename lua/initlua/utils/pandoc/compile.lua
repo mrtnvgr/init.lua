@@ -16,7 +16,7 @@ function initlua.pandoc.compile(output_extension, output_format, args, success_c
 
 	local errs = {}
 
-	local cwd = require("plenary.path"):new(initlua.install_path, "pandoc", "themes")
+	local cwd = require("plenary.path"):new(initlua.path.config, "pandoc", "themes")
 
 	Job:new({
 		command = "pandoc",

@@ -10,8 +10,6 @@ initlua.settings = {
 	},
 }
 
-initlua.install_path = vim.fn.stdpath("config")
-
 function initlua.notify(msg, type, opts)
 	local default_opts = { title = "Init.lua" }
 	if opts then
@@ -35,6 +33,7 @@ end
 
 local modules = {
 	-- General utils
+    "path",
 	"cache",
 	"configure",
 

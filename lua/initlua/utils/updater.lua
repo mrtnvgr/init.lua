@@ -6,7 +6,7 @@ function initlua.updater.update()
 	Job:new({
 		command = "git",
 		args = { "pull", "--ff-only" },
-		cwd = initlua.install_path,
+		cwd = initlua.path.config,
 		on_stderr = function(_, err)
 			if err:match("^From") then
 				initlua.notify("Repository pulled successfully!")

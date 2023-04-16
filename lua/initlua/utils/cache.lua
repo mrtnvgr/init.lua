@@ -1,12 +1,6 @@
 initlua.cache = {}
 
--- Using this instead of plenary.nvim, because plugins are loaded later.
-local path_sep = "/"
-if vim.fn.has("win32") == 1 then
-	path_sep = "\\"
-end
-
-initlua.cache.path = initlua.install_path .. path_sep .. "cache.json"
+initlua.cache.path = initlua.path.config .. initlua.path.sep .. "cache.json"
 
 function initlua.cache.get()
 	local file = io.open(initlua.cache.path, "r")
@@ -98,7 +92,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	desc = "Reload settings from cache on every cache file save",
 	callback = function()
 		local saved_file_path = vim.fn.expand("<amatch>")
-		local cache_path = require("plenary.path"):new(initlua.install_path, "cache.json")
+		local cache_path = require("plenary.path"):new(initlua.path.config, "cache.json")
 		local cache_real_path = vim.loop.fs_realpath(cache_path.filename)
 
 		if saved_file_path == cache_real_path then

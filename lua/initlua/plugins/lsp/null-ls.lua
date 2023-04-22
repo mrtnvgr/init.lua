@@ -7,6 +7,22 @@ local M = {}
 -- 	"prettier", -- JSON, YAML, XML, Markdown, CSS, JS, HTML formatting
 -- }
 
+local function rustfmt_extra_args(params)
+	local Path = require("plenary.path")
+	local cargo_toml = Path:new(params.root .. "/" .. "Cargo.toml")
+
+	if cargo_toml:exists() and cargo_toml:is_file() then
+		for _, line in ipairs(cargo_toml:readlines()) do
+			local edition = line:match([[^edition%s*=%s*%"(%d+)%"]])
+			if edition then
+				return { "--edition=" .. edition }
+			end
+		end
+	end
+	-- default edition when we don't find `Cargo.toml` or the `edition` in it.
+	return { "--edition=2021" }
+end
+
 function M.setup()
 	local lsp = require("initlua.plugins.lsp.core")
 
@@ -41,6 +57,11 @@ function M.setup()
 				else
 					require("mason-null-ls").default_setup(source_name, methods)
 				end
+			end,
+			rustfmt = function()
+				null_ls.register(null_ls.builtins.formatting.rustfmt.with({
+					extra_args = rustfmt_extra_args,
+				}))
 			end,
 		},
 	})

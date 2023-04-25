@@ -15,7 +15,7 @@ return {
 					"toml",
 					"html",
 					"vim",
-					"help",
+					"vimdoc",
 					"query",
 					"regex",
 					"markdown",

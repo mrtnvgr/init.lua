@@ -2,7 +2,9 @@ return {
 	"Wansmer/langmapper.nvim",
 	event = "VeryLazy",
 	config = function()
-		require("langmapper").setup()
+		local langmapper = require("langmapper")
+		langmapper.setup()
+		langmapper.hack_get_keymap()
 
 		require("leap.util")["get-input"] = function()
 			local ok, ch = pcall(vim.fn.getcharstr)

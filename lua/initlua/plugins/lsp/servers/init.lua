@@ -26,7 +26,7 @@ function M.configure()
 		if ok then
 			-- Configure server only if any configuration is present
 			if not vim.tbl_isempty(settings) then
-				lsp.configure(server, settings)
+				lsp.configure(server:gsub("-", "_"), settings)
 			end
 		end
 	end

@@ -42,6 +42,14 @@ return {
 						},
 						opts = { skip = true },
 					},
+
+					-- Avoid cargo clippy long message
+					-- TODO: rename this message -> "Checking"
+					{
+						view = "mini",
+						filter = { event = "lsp", kind = "progress", find = "cargo clippy" },
+						opts = { skip = true },
+					},
 				},
 			})
 

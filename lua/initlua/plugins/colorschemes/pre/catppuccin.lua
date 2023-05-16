@@ -1,4 +1,5 @@
 require("catppuccin").setup({
+	term_colors = true,
 	custom_highlights = function(_)
 		return {
 			-- CR01

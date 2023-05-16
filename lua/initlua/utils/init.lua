@@ -33,7 +33,7 @@ end
 
 local modules = {
 	-- General utils
-    "path",
+	"path",
 	"cache",
 	"configure",
 
@@ -44,7 +44,7 @@ local modules = {
 	-- Miscellaneous
 	"format",
 	"colorscheme",
-	"cs",
+	"oxidec",
 	"pandoc",
 }
 

@@ -15,7 +15,7 @@ function initlua.colorscheme.select()
 	vim.ui.select(colorschemes, { prompt = "Select colorscheme" }, function(selected)
 		if selected ~= nil then
 			vim.cmd.colorscheme(selected)
-			vim.schedule(initlua.cs.sync)
+			vim.schedule(initlua.oxidec.sync)
 		end
 	end)
 end
@@ -37,7 +37,7 @@ function initlua.colorscheme.set_random(cache_only)
 
 	if not cache_only then
 		pcall(vim.cmd.colorscheme, initlua.settings.colorscheme)
-		vim.schedule(initlua.cs.sync)
+		vim.schedule(initlua.oxidec.sync)
 	end
 end
 

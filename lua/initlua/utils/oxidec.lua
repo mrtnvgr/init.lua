@@ -16,8 +16,7 @@ function initlua.oxidec.sync()
 	local path = os.getenv("HOME") .. "/.cache/oxidec/status/colorscheme.json"
 	local file = io.open(path, "r")
 	if not file then
-		initlua.err("oxidec: colorscheme status does not exist!")
-		return
+		initlua.oxidec.set_existing_colorscheme()
 	else
 		local cache = file:read("*a")
 		file:close()
@@ -86,11 +85,9 @@ function initlua.oxidec.sync_using_terminal_colors()
 	local Job = require("plenary.job")
 	Job:new({
 		command = "oxidec",
-		args = { "colorscheme", "import", file_path },
+		args = { "colorscheme", "set", initlua.settings.colorscheme },
 		on_exit = function(_, code)
-			if code == 0 then
-				initlua.oxidec.set_existing_colorscheme()
-			else
+			if code ~= 0 then
 				initlua.err("oxidec: failed to import a colorscheme")
 				os.remove(file_path)
 			end

@@ -1,8 +1,5 @@
 require("gruvbox").setup({
 	contrast = "hard",
-	palette_overrides = {
-		background = "#1D2122",
-	},
 	overrides = {
 
 		-- CR01

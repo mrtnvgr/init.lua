@@ -16,6 +16,6 @@ end
 vim.api.nvim_create_user_command(
 	"OxidecRandomWallpaper",
 	initlua.oxidec.wallpaper.set_random,
-	{ desc = "Set a random wallpaper" }
+	{ desc = "set random wallpaper" }
 )
 vim.keymap.set("n", "<leader>arw", initlua.oxidec.wallpaper.set_random)

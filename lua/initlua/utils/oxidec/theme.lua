@@ -15,5 +15,5 @@ function initlua.oxidec.theme.set_random()
 	initlua.oxidec.colorscheme.set_from_cache()
 end
 
-vim.api.nvim_create_user_command("OxidecRandomTheme", initlua.oxidec.theme.set_random, { desc = "Set a random theme" })
+vim.api.nvim_create_user_command("OxidecRandomTheme", initlua.oxidec.theme.set_random, { desc = "set random theme" })
 vim.keymap.set("n", "<leader>art", initlua.oxidec.theme.set_random)

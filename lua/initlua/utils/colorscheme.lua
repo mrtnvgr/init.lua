@@ -44,13 +44,13 @@ end
 vim.api.nvim_create_user_command(
 	"InitluaSelectColorscheme",
 	initlua.colorscheme.select,
-	{ desc = "Select colorscheme" }
+	{ desc = "select colorscheme" }
 )
 vim.keymap.set("n", "<leader>asc", initlua.colorscheme.select)
 
 vim.api.nvim_create_user_command(
 	"InitluaRandomColorscheme",
 	initlua.colorscheme.set_random,
-	{ desc = "Set a random colorscheme" }
+	{ desc = "set random colorscheme" }
 )
 vim.keymap.set("n", "<leader>arc", initlua.colorscheme.set_random)

@@ -1,10 +1,6 @@
-initlua.oxidec = {}
-
-function initlua.oxidec.sync()
-	local is_windows = vim.fn.has("win32") == 1
-	local oxidec_not_found = vim.fn.executable("oxidec") == 0
-
-	if is_windows or oxidec_not_found then
+function initlua.oxidec.colorscheme.sync()
+	if vim.fn.executable("oxidec") == 0 then
+		initlua.err("oxidec is not installed!")
 		return
 	end
 
@@ -16,7 +12,7 @@ function initlua.oxidec.sync()
 	local path = os.getenv("HOME") .. "/.cache/oxidec/status/colorscheme.json"
 	local file = io.open(path, "r")
 	if not file then
-		initlua.oxidec.set_existing_colorscheme()
+		initlua.oxidec.colorscheme.sync_with_current_one()
 	else
 		local cache = file:read("*a")
 		file:close()
@@ -28,12 +24,12 @@ function initlua.oxidec.sync()
 		end
 
 		if data.name ~= initlua.settings.colorscheme then
-			initlua.oxidec.set_existing_colorscheme()
+			initlua.oxidec.colorscheme.sync_with_current_one()
 		end
 	end
 end
 
-function initlua.oxidec.set_existing_colorscheme()
+function initlua.oxidec.colorscheme.sync_with_current_one()
 	local Job = require("plenary.job")
 	Job:new({
 		command = "oxidec",
@@ -44,7 +40,7 @@ function initlua.oxidec.set_existing_colorscheme()
 			else
 				local result = table.concat(j:stderr_result(), "\n")
 				if result:match("This colorscheme does not exist") then
-					vim.schedule(initlua.oxidec.sync_using_terminal_colors)
+					vim.schedule(initlua.oxidec.colorscheme.sync_using_terminal_colors)
 					return
 				end
 			end
@@ -52,7 +48,7 @@ function initlua.oxidec.set_existing_colorscheme()
 	}):start()
 end
 
-function initlua.oxidec.sync_using_terminal_colors()
+function initlua.oxidec.colorscheme.sync_using_terminal_colors()
 	local file_path = os.getenv("HOME") .. "/.config/oxidec/colorschemes/" .. initlua.settings.colorscheme .. ".json"
 	local file = io.open(file_path, "w")
 

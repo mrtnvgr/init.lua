@@ -53,14 +53,18 @@ git clone https://github.com/mrtnvgr/init.lua %localappdata%/nvim/
 
 ## Commands
 
-| Neovim command             | Lua command                        | Keymap        | Description                  |
-| -------------------------- | ---------------------------------- | ------------- | ---------------------------- |
-| `InitluaUpdate`            | `initlua.updater.update()`         | `<leader>au`  | update everything            |
-| `InitluaConfigure`         | `initlua.configure.all()`          | `<leader>ac`  | configure self               |
-| `InitluaToggleFormatting`  | `initlua.format.toggle()`          | `<leader>atf` | toggle null-ls formatting    |
-| `InitluaSelectColorscheme` | `initlua.colorscheme.select()`     | `<leader>asc` | pick a colorscheme           |
-| `InitluaRandomColorscheme` | `initlua.colorscheme.set_random()` | `<leader>arc` | set a random colorscheme     |
-| `InitluaPandoc`            | `initlua.pandoc.menu()`            | `<leader>apd` | open pandoc integration menu |
+| Neovim command             | Lua command                             | Keymap        | Description                  |
+| -------------------------- | --------------------------------------- | ------------- | ---------------------------- |
+| `InitluaUpdate`            | `initlua.updater.update()`              | `<leader>au`  | update everything            |
+| `InitluaConfigure`         | `initlua.configure.all()`               | `<leader>ac`  | configure self               |
+| `InitluaToggleFormatting`  | `initlua.format.toggle()`               | `<leader>atf` | toggle null-ls formatting    |
+| `InitluaSelectColorscheme` | `initlua.colorscheme.select()`          | `<leader>asc` | pick a colorscheme           |
+| `InitluaRandomColorscheme` | `initlua.colorscheme.set_random()`      | `<leader>arc` | set a random colorscheme     |
+| `OxidecSelectWallpaper`    | `initlua.oxidec.wallpaper.select()`     | `<leader>asw` | select wallpaper             |
+| `OxidecRandomWallpaper`    | `initlua.oxidec.wallpaper.set_random()` | `<leader>arw` | set a random wallpaper       |
+| `OxidecSelectTheme`        | `initlua.oxidec.theme.select()`         | `<leader>ast` | select theme                 |
+| `OxidecRandomTheme`        | `initlua.oxidec.theme.set_random()`     | `<leader>art` | set a random theme           |
+| `InitluaPandoc`            | `initlua.pandoc.menu()`                 | `<leader>apd` | open pandoc integration menu |
 
 **All other Lua commands are internal and are not recommended for use.**
 

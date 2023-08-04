@@ -5,5 +5,9 @@ local modules = {
 }
 
 for _, module in pairs(modules) do
-	require("initlua.core." .. module)
+	local ok, _ = pcall(require, "initlua.core.lua." .. module)
+
+	if not ok then
+		require(module)
+	end
 end
